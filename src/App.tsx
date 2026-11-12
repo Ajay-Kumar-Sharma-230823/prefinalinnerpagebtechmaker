@@ -313,6 +313,73 @@ const professionalCertificatesByPlatform = new Map(professionalCertificationImag
 
 const vectorLogos = { google: siGoogle, apple: siApple, meta: siMeta, nvidia: siNvidia, infosys: siInfosys, accenture: siAccenture, wipro: siWipro, hcl: siHcl, sap: siSap, redhat: siRedhat, intel: siIntel, amd: siAmd, qualcomm: siQualcomm, cisco: siCisco, dell: siDell, atlassian: siAtlassian, zoho: siZoho, snowflake: siSnowflake, datadog: siDatadog, udemy: siUdemy, coursera: siCoursera, yc: siYcombinator, devpost: siDevpost, youtube: siYoutube, tcs: siTcs } as const
 const logoAliases: Record<string, keyof typeof vectorLogos> = { 'Y Combinator': 'yc', Devpost: 'devpost', Udemy: 'udemy', Coursera: 'coursera', 'Google Career Certificates': 'google', Apple: 'apple', Meta: 'meta', NVIDIA: 'nvidia', Infosys: 'infosys', Accenture: 'accenture', Wipro: 'wipro', HCLTech: 'hcl', SAP: 'sap', 'Red Hat': 'redhat', Intel: 'intel', AMD: 'amd', Qualcomm: 'qualcomm', Cisco: 'cisco', 'Dell Technologies': 'dell', Atlassian: 'atlassian', Zoho: 'zoho', Snowflake: 'snowflake', Datadog: 'datadog', TCS: 'tcs' }
+
+// These files are intentionally imported from the supplied Logos directory so Vite
+// fingerprints and deploys them with the site instead of relying on third-party favicon/CDN URLs.
+const localLogoSources: Record<string, string> = {
+  Adobe: new URL('../Logos/Adobe.png', import.meta.url).href,
+  'AICTE Internship Portal': new URL('../Logos/AICTE.jpg', import.meta.url).href,
+  Amazon: new URL('../Logos/Amazon.png', import.meta.url).href,
+  AWS: new URL('../Logos/AWS.png', import.meta.url).href,
+  'AWS Training': new URL('../Logos/AWS.png', import.meta.url).href,
+  BrowserStack: new URL('../Logos/Browser stck.png', import.meta.url).href,
+  Capgemini: new URL('../Logos/Capgemini.png', import.meta.url).href,
+  Cognizant: new URL('../Logos/Cognizzant.png', import.meta.url).href,
+  DRDO: new URL('../Logos/DRDO.png', import.meta.url).href,
+  'DRDO Internship': new URL('../Logos/DRDO.png', import.meta.url).href,
+  'DRDO Single-Time Application Form': new URL('../Logos/DRDO.png', import.meta.url).href,
+  Forage: new URL('../Logos/Forage.png', import.meta.url).href,
+  HCLTech: new URL('../Logos/HclTech.jpg', import.meta.url).href,
+  IBM: new URL('../Logos/IBM.png', import.meta.url).href,
+  'IBM SkillsBuild': new URL('../Logos/IBM.png', import.meta.url).href,
+  'IIT (ISM) Dhanbad': new URL('../Logos/IIT (ISM) Dhanbad.png', import.meta.url).href,
+  'IIT Bhilai': new URL('../Logos/IIT Bhilai.png', import.meta.url).href,
+  'IIT Bhubaneswar': new URL('../Logos/IIT Bhubaneswar.png', import.meta.url).href,
+  'IIT Bombay': new URL('../Logos/IIT Bombay.png', import.meta.url).href,
+  'IIT Delhi': new URL('../Logos/IIT Delhi.png', import.meta.url).href,
+  'IIT Jammu': new URL('../Logos/IIT Jammu.png', import.meta.url).href,
+  'IIT Kanpur': new URL('../Logos/IIT Kanpur.png', import.meta.url).href,
+  'IIT Madras': new URL('../Logos/IIT Madras.png', import.meta.url).href,
+  'IIT Mandi': new URL('../Logos/IIT Mandi.png', import.meta.url).href,
+  'IIT Palakkad': new URL('../Logos/IIT Palakkad.png', import.meta.url).href,
+  'IIT Patna': new URL('../Logos/IIT Patna.png', import.meta.url).href,
+  'IIT Roorkee': new URL('../Logos/IIT Roorkee.png', import.meta.url).href,
+  'IIT Ropar': new URL('../Logos/IIT Ropar.png', import.meta.url).href,
+  'IIT Tirupati': new URL('../Logos/IIT Tirupati.png', import.meta.url).href,
+  'India Science, Technology and Innovation Portal': new URL('../Logos/India Science, Technology and Innovation Portal.png', import.meta.url).href,
+  'Indian Army Internship': new URL('../Logos/Indian Amry.png', import.meta.url).href,
+  ISRO: new URL('../Logos/ISRO.png', import.meta.url).href,
+  'ISRO Course Calendar': new URL('../Logos/ISRO.png', import.meta.url).href,
+  'ISRO Registration Portal': new URL('../Logos/ISRO.png', import.meta.url).href,
+  'ISRO Learning Management System': new URL('../Logos/ISRO.png', import.meta.url).href,
+  'ISRO Internship': new URL('../Logos/ISRO.png', import.meta.url).href,
+  'Legislative Department – Ministry of Law & Justice': new URL('../Logos/Legislative Department – Ministry of Law & Justice.jpg', import.meta.url).href,
+  LTIMindtree: new URL('../Logos/lti mindtree.png', import.meta.url).href,
+  Microsoft: new URL('../Logos/Microsoft.png', import.meta.url).href,
+  'Ministry of Electronics and Information Technology': new URL('../Logos/Ministry of Electronics and Information Technology.png', import.meta.url).href,
+  'Ministry of Environment, Forest and Climate Change': new URL('../Logos/Ministry of Environment, Forest and Climate Change.jpg', import.meta.url).href,
+  'Ministry of External Affairs': new URL('../Logos/Ministry of External Affairs.png', import.meta.url).href,
+  'Ministry of Statistics and Programme Implementation': new URL('../Logos/Ministry of Statistics and Programme Implementation.jpg', import.meta.url).href,
+  'Ministry of Women and Child Development': new URL('../Logos/Ministry of Women and Child Development.png', import.meta.url).href,
+  MSME: new URL('../Logos/MSME.png', import.meta.url).href,
+  'National Human Rights Commission': new URL('../Logos/National Human Rights Commission.jpg', import.meta.url).href,
+  'NITI Aayog Internship': new URL('../Logos/NITI Aayog.jpg', import.meta.url).href,
+  Oracle: new URL('../Logos/Oracle.png', import.meta.url).href,
+  'Oracle University': new URL('../Logos/Oracle.png', import.meta.url).href,
+  'Prime Minister Internship Scheme': new URL('../Logos/Prime Minister Internship Scheme.png', import.meta.url).href,
+  RGPV: new URL('../Logos/RGPV.png', import.meta.url).href,
+  Salesforce: new URL('../Logos/salesforce.png', import.meta.url).href,
+  ServiceNow: new URL('../Logos/ServiceNow.png', import.meta.url).href,
+  'Smart India Hackathon': new URL('../Logos/SIH.png', import.meta.url).href,
+  'Skill India Digital': new URL('../Logos/Skill India.png', import.meta.url).href,
+  'SWAYAM NPTEL': new URL('../Logos/Swayam NPTEL.png', import.meta.url).href,
+  'Tech Mahindra': new URL('../Logos/tech mahindra.png', import.meta.url).href,
+  'UIDAI Hackathon': new URL('../Logos/UIDAI.png', import.meta.url).href,
+  Unstop: new URL('../Logos/Unstop.png', import.meta.url).href,
+  UpGrad: new URL('../Logos/UpGrad.png', import.meta.url).href,
+  Workday: new URL('../Logos/Workday.png', import.meta.url).href,
+  Yukti: new URL('../Logos/Yukti.png', import.meta.url).href,
+}
 const heroSlides = [
   { id: 'academics', title: 'Discover Opportunities.', copy: 'Find research internships, IIT summer programs, ISRO learning resources and government opportunities.', tag: 'Research discovery', markers: ['IIT SUMMER', 'ISRO LEARNING', 'INTERNSHIPS'] },
   { id: 'innovation', title: 'Turn Ideas Into Impact.', copy: 'Explore national hackathons, international competitions and innovation challenges.', tag: 'Innovation & building', markers: ['SMART INDIA HACKATHON', 'NATIONAL BUILDS', 'GLOBAL COMPETITIONS'] },
@@ -331,7 +398,8 @@ function LogoMark({ resource, compact = false, large = false }: { resource: Pick
   const companySlug = companyLogoSlugs[resource.name]
   const sihLogo = resource.name.includes('Smart India Hackathon') ? 'https://www.google.com/s2/favicons?domain=sih.gov.in&sz=256' : undefined
   const officialDomainLogo = resource.domain ? `https://www.google.com/s2/favicons?domain=${resource.domain}&sz=256` : undefined
-  const imageSrc = resource.logoUrl || sihLogo || officialDomainLogo || (iitDomain ? `https://www.google.com/s2/favicons?domain=${iitDomain}&sz=128` : companySlug ? `https://cdn.simpleicons.org/${companySlug}` : undefined)
+  const localLogo = localLogoSources[resource.name] || localLogoSources[resource.logo || '']
+  const imageSrc = resource.logoUrl || localLogo || sihLogo || officialDomainLogo || (iitDomain ? `https://www.google.com/s2/favicons?domain=${iitDomain}&sz=128` : companySlug ? `https://cdn.simpleicons.org/${companySlug}` : undefined)
   return <span className={'logo-mark' + (vector ? ' vector' : '') + (large ? ' large' : '')} title={resource.name} style={vector && !imageSrc ? { color: '#' + vector.hex } : undefined}>
     {imageSrc && !failed ? <img src={imageSrc} alt={`${resource.name} logo`} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} /> : vector ? <svg viewBox="0 0 24 24" aria-hidden="true"><path d={vector.path} /></svg> : <b>{letters}</b>}
   </span>
