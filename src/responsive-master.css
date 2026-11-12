@@ -1,0 +1,4032 @@
+/*
+  ============================================================
+  B.TECH MAKER — MASTER RESPONSIVE STYLESHEET
+  ============================================================
+  Covers: 320px → 1920px+
+  Loads after all other CSS to override with correct responsive rules.
+  Mobile-first layer: fixes overflow, stacking, spacing & typography.
+  ============================================================
+*/
+
+/* ── 0. GLOBAL SAFETY ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent any image or media from causing horizontal overflow */
+img, svg, video, iframe, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* All interactive elements should not cause overflow */
+button, a, input, select, textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ── 1. LARGE DESKTOP ≥ 1601px ─────────────────────────────── */
+@media (min-width: 1601px) {
+  .container,
+  .hero-grid,
+  .topbar-inner,
+  .hero-stats,
+  .hero-rail {
+    width: min(1440px, calc(100% - 72px));
+  }
+
+  .hero h1 {
+    font-size: clamp(72px, 5.5vw, 92px);
+  }
+
+  .section-heading h2 {
+    font-size: clamp(55px, 4.2vw, 68px);
+  }
+
+  .iit-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .company-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .certification-platform-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ── 2. STANDARD LAPTOP 1367px – 1600px ───────────────────── */
+@media (min-width: 1367px) and (max-width: 1600px) {
+  .container,
+  .topbar-inner,
+  .hero-grid,
+  .hero-stats,
+  .hero-rail {
+    width: min(1370px, calc(100% - 60px));
+  }
+
+  .iit-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .company-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* ── 3. SMALL LAPTOP 1025px – 1366px ──────────────────────── */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .container,
+  .topbar-inner,
+  .hero-grid,
+  .hero-stats,
+  .hero-rail {
+    width: min(100% - 56px, 1370px);
+  }
+
+  .iit-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .company-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .certification-platform-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hackathon-platform-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 5.2vw, 78px);
+  }
+}
+
+/* ── 4. TABLET 768px – 1024px ─────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* ── Topbar & Nav ── */
+  .topbar {
+    height: 68px;
+  }
+
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: min(100% - 44px, 1370px);
+  }
+
+  .topbar-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding-top: 60px;
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 4vw, 48px);
+  }
+
+  .hero-dashboard-showcase .hero-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(28px, 4vw, 44px);
+  }
+
+  .hero-dashboard-showcase .hero-copy {
+    order: 1;
+    max-width: 720px;
+  }
+
+  .hero-showcase {
+    order: 2;
+    max-width: 760px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 72px);
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+  }
+
+  .hero-stat {
+    min-height: 84px;
+    padding: 15px 18px;
+  }
+
+  .hero-stat b {
+    font-size: 32px;
+  }
+
+  .hero-rail {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-inline: 20px;
+    white-space: nowrap;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding-block: 96px;
+  }
+
+  .section-heading {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 42px;
+  }
+
+  .section-aside {
+    grid-column: 2;
+    padding-top: 0;
+  }
+
+  .section-number i {
+    height: 40px;
+  }
+
+  /* ── Resource grids ── */
+  .three-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certification-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certification-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .internship-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hackathon-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ── Academic layout ── */
+  .academic-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* ── Year flip cards ── */
+  .year-flip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .year-flip-card {
+    height: 316px;
+  }
+
+  /* ── IIT grid ── */
+  .iit-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .iit-card {
+    min-height: 220px;
+  }
+
+  /* ── Company grid & controls ── */
+  .company-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .company-controls {
+    grid-template-columns: 1fr;
+    top: 80px;
+  }
+
+  .company-controls small {
+    display: none;
+  }
+
+  /* ── SIH Feature ── */
+  .sih-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .sih-side {
+    display: none;
+  }
+
+  .sih-content h3 {
+    font-size: clamp(38px, 5vw, 48px);
+  }
+
+  /* ── YC Feature ── */
+  .yc-feature {
+    grid-template-columns: 74px minmax(0, 1fr);
+    flex-wrap: wrap;
+  }
+
+  .yc-feature .link-button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  /* ── Document/guide grids ── */
+  .document-library {
+    grid-template-columns: 1fr;
+  }
+
+  .document-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guide-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prep-support-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ── Exam feature ── */
+  .exam-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-media {
+    min-height: 285px;
+  }
+
+  /* ── Hub intro ── */
+  .hub-intro {
+    grid-template-columns: 1fr;
+    margin-bottom: 80px;
+  }
+
+  /* ── Prep module spacing ── */
+  .prep-module + .prep-module {
+    margin-top: 88px;
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  /* ── Mobile menu (shown on tablet) ── */
+  .mobile-menu {
+    position: fixed;
+    z-index: 190;
+    inset: 0;
+    display: block;
+    padding: 20px;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: -20px;
+    z-index: 1;
+    padding-top: 20px;
+    background: var(--bg);
+  }
+
+  .mobile-menu nav {
+    display: grid;
+    margin-top: 13px;
+  }
+
+  .mobile-menu nav button {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) 18px;
+    align-items: center;
+    min-height: 54px;
+    padding: 18px 3px;
+    color: var(--ink);
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .mobile-menu nav button span {
+    color: var(--quiet);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── Flip cards hover → tap on tablet ── */
+  .year-flip-card:hover .year-flip-card-inner {
+    filter: none;
+    transform: none;
+  }
+
+  .year-flip-card:hover .year-flip-card-front {
+    pointer-events: auto;
+  }
+
+  .year-flip-card:hover .year-flip-card-back {
+    pointer-events: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    transform: rotateY(180deg);
+    filter: drop-shadow(0 21px 24px rgba(0,0,0,.3));
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front {
+    pointer-events: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-back {
+    pointer-events: auto;
+  }
+
+  /* ── Showcase viewport ── */
+  .showcase-viewport,
+  .showcase-slide,
+  .showcase-board {
+    min-height: clamp(480px, 68vw, 540px);
+  }
+
+  /* ── SIH Presentations ── */
+  .sih-presentation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Reference gallery ── */
+  .reference-gallery--isro-certificate .reference-grid,
+  .reference-gallery--sih .reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ── Subject resource action grid ── */
+  .subject-resource-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── 5. LARGE MOBILE 481px – 767px ───────────────────────── */
+@media (min-width: 481px) and (max-width: 767px) {
+  /* ── Topbar ── */
+  .topbar {
+    height: 62px;
+  }
+
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: calc(100% - 36px);
+  }
+
+  .topbar-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .search-trigger span {
+    display: none;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding-top: 48px;
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-dashboard-showcase .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-dashboard-showcase .hero-copy {
+    order: 1;
+  }
+
+  .hero-showcase {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 9vw, 56px);
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-buttons > span {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin-top: 32px;
+  }
+
+  .hero-stat {
+    min-height: 78px;
+    padding: 14px 14px;
+  }
+
+  .hero-stat b {
+    font-size: 29px;
+  }
+
+  .hero-rail {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-inline: 16px;
+    white-space: nowrap;
+    gap: 16px;
+    height: 56px;
+    margin-top: 46px;
+    font-size: 9px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding-block: 76px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  .section-number {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 14px;
+    padding: 0;
+  }
+
+  .section-number i {
+    width: 40px;
+    height: 1px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(28px, 7vw, 40px);
+    overflow-wrap: anywhere;
+  }
+
+  .section-description {
+    font-size: 13px;
+  }
+
+  .section-aside {
+    grid-column: auto;
+    margin-top: 13px;
+  }
+
+  /* ── Resource grids ── */
+  .three-grid,
+  .two-grid,
+  .internship-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certification-platform-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+  }
+
+  .certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hackathon-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ── Academic layout ── */
+  .academic-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* ── Resource card ── */
+  .resource-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  /* ── SIH Feature ── */
+  .sih-feature {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .sih-side {
+    display: none;
+  }
+
+  .sih-content {
+    padding: 26px;
+  }
+
+  .sih-content h3 {
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  /* ── SIH presentations ── */
+  .sih-presentations {
+    border-radius: 11px;
+  }
+
+  .sih-presentation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Year flip ── */
+  .year-flip-grid {
+    grid-template-columns: minmax(0, 430px);
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .year-flip-card {
+    height: 320px;
+  }
+
+  .academic-grid-separator {
+    display: none;
+  }
+
+  /* ── IIT grid ── */
+  .iit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .iit-card {
+    min-height: 0;
+  }
+
+  .iit-toolbar {
+    display: block;
+  }
+
+  /* ── Company grid ── */
+  .company-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .company-controls {
+    grid-template-columns: 1fr;
+    position: static;
+  }
+
+  .company-controls small {
+    display: none;
+  }
+
+  /* ── YC Feature ── */
+  .yc-feature {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .yc-feature .link-button {
+    grid-column: auto;
+  }
+
+  /* ── Document/guide grids ── */
+  .document-library {
+    grid-template-columns: 1fr;
+  }
+
+  .document-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prep-support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Exam feature ── */
+  .exam-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-feature-copy {
+    padding: 26px;
+  }
+
+  .exam-feature-copy h3 {
+    font-size: clamp(27px, 6vw, 36px);
+  }
+
+  .featured-media {
+    min-height: 260px;
+  }
+
+  /* ── Hub intro ── */
+  .hub-intro {
+    grid-template-columns: 1fr;
+    margin-bottom: 60px;
+    padding: 18px 0;
+    gap: 14px;
+  }
+
+  .hub-intro > p {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  /* ── Subsection header ── */
+  .subsection-header {
+    display: block;
+    margin-top: 32px;
+  }
+
+  .subsection-header span {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  /* ── Showcase ── */
+  .showcase-viewport,
+  .showcase-slide,
+  .showcase-board {
+    min-height: clamp(430px, 90vw, 540px);
+  }
+
+  /* ── Reference galleries ── */
+  .reference-gallery--isro-certificate .reference-grid,
+  .reference-gallery--sih .reference-grid {
+    grid-template-columns: minmax(0, 370px);
+    max-width: 420px;
+  }
+
+  .reference-gallery--isro-certificate .reference-card,
+  .reference-gallery--sih .reference-card {
+    grid-template-rows: 190px minmax(0, 1fr);
+    height: 328px;
+  }
+
+  /* ── Back to top ── */
+  .back-top {
+    right: 14px;
+    bottom: 14px;
+    width: 38px;
+    height: 38px;
+  }
+
+  /* ── Subject resource ── */
+  .subject-resource-action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Search overlay ── */
+  .search-overlay {
+    padding: 80px 12px 12px;
+  }
+
+  .search-panel {
+    padding: 10px;
+  }
+
+  /* ── Prep module spacing ── */
+  .prep-module + .prep-module {
+    margin-top: 68px;
+  }
+
+  /* ── Mobile menu ── */
+  .mobile-menu {
+    position: fixed;
+    z-index: 190;
+    inset: 0;
+    display: block;
+    padding: 18px;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: -18px;
+    z-index: 1;
+    padding-top: 18px;
+    background: var(--bg);
+  }
+
+  .mobile-menu nav {
+    display: grid;
+    margin-top: 10px;
+  }
+
+  .mobile-menu nav button {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) 18px;
+    align-items: center;
+    min-height: 50px;
+    padding: 15px 3px;
+    color: var(--ink);
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .mobile-menu nav button span {
+    color: var(--quiet);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── Flip card: hover → tap for large-mobile ── */
+  .year-flip-card:hover .year-flip-card-inner {
+    filter: none;
+    transform: none;
+  }
+
+  .year-flip-card:hover .year-flip-card-front {
+    pointer-events: auto;
+  }
+
+  .year-flip-card:hover .year-flip-card-back {
+    pointer-events: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    transform: rotateY(180deg);
+    filter: drop-shadow(0 21px 24px rgba(0,0,0,.3));
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front {
+    pointer-events: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-back {
+    pointer-events: auto;
+  }
+}
+
+/* ── 6. STANDARD MOBILE 376px – 480px ────────────────────── */
+@media (min-width: 376px) and (max-width: 480px) {
+  /* ── Topbar ── */
+  .topbar {
+    height: 60px;
+  }
+
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: calc(100% - 32px);
+  }
+
+  .topbar-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .search-trigger span {
+    display: none;
+  }
+
+  .brand-glyph {
+    width: 29px;
+    height: 29px;
+    font-size: 17px;
+  }
+
+  .brand b {
+    font-size: 11px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .icon-button {
+    height: 32px;
+  }
+
+  .topbar-actions {
+    gap: 5px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding-top: 44px;
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-dashboard-showcase .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-dashboard-showcase .hero-copy {
+    order: 1;
+  }
+
+  .hero-showcase {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10.5vw, 48px);
+    line-height: 1;
+  }
+
+  .hero-description {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-buttons > span {
+    padding-left: 0;
+    border-left: 0;
+    font-size: 11px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin-top: 28px;
+  }
+
+  .hero-stat {
+    min-height: 74px;
+    padding: 12px 12px;
+  }
+
+  .hero-stat b {
+    font-size: 26px;
+  }
+
+  .hero-stat span {
+    font-size: 8px;
+    max-width: none;
+  }
+
+  .hero-rail {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-inline: 14px;
+    white-space: nowrap;
+    gap: 14px;
+    height: 54px;
+    margin-top: 42px;
+    font-size: 8.5px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding-block: 68px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 28px;
+  }
+
+  .section-number {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0;
+  }
+
+  .section-number i {
+    width: 40px;
+    height: 1px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(26px, 8.5vw, 36px);
+    overflow-wrap: anywhere;
+  }
+
+  .section-description {
+    font-size: 13px;
+  }
+
+  .section-aside {
+    margin-top: 12px;
+  }
+
+  .count-chip {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* ── Resource grids ── */
+  .three-grid,
+  .two-grid,
+  .internship-grid,
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certification-platform-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .certification-grid,
+  .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hackathon-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Resource card ── */
+  .resource-card {
+    min-height: 0;
+    padding: 15px;
+  }
+
+  .resource-card-copy {
+    padding: 18px 0 12px;
+  }
+
+  .resource-card h3,
+  .company-copy h3,
+  .iit-card h3 {
+    overflow-wrap: anywhere;
+  }
+
+  /* ── Academic layout ── */
+  .academic-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* ── Subsection header ── */
+  .subsection-header {
+    display: block;
+    margin-top: 28px;
+  }
+
+  .subsection-header span {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  /* ── SIH Feature ── */
+  .sih-feature {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .sih-side {
+    display: none;
+  }
+
+  .sih-content {
+    padding: 22px;
+  }
+
+  .sih-brand {
+    align-items: flex-start;
+    min-width: 0;
+    margin-bottom: 28px;
+  }
+
+  .sih-brand span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .sih-content h3 {
+    font-size: clamp(30px, 9.5vw, 38px);
+  }
+
+  .sih-content > p:not(.eyebrow) {
+    font-size: 12px;
+  }
+
+  /* ── SIH Presentations ── */
+  .sih-presentations {
+    border-radius: 11px;
+  }
+
+  .sih-presentation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sih-presentation-actions {
+    gap: 6px;
+    padding-inline: 12px;
+  }
+
+  .presentation-action {
+    min-height: 38px;
+    padding-inline: 7px;
+  }
+
+  /* ── Year flip ── */
+  .year-flip-grid {
+    grid-template-columns: minmax(0, 430px);
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .year-flip-card {
+    height: 310px;
+  }
+
+  .academic-grid-separator {
+    display: none;
+  }
+
+  /* ── IIT ── */
+  .iit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .iit-card {
+    min-height: 0;
+  }
+
+  .iit-card .link-button {
+    min-height: 36px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .iit-toolbar {
+    display: block;
+  }
+
+  .iit-toolbar p {
+    display: block;
+  }
+
+  .iit-toolbar p span {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .iit-toolbar > span {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* ── Company ── */
+  .company-controls {
+    grid-template-columns: 1fr;
+    position: static;
+    padding: 10px;
+  }
+
+  .company-controls small {
+    display: none;
+  }
+
+  .company-card {
+    min-height: 0;
+  }
+
+  /* ── YC Feature ── */
+  .yc-feature {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .yc-feature .link-button {
+    grid-column: auto;
+  }
+
+  .yc-feature h3 {
+    font-size: 26px;
+  }
+
+  /* ── Document/guide grids ── */
+  .document-library {
+    grid-template-columns: 1fr;
+  }
+
+  .document-grid,
+  .guide-grid,
+  .prep-support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .document-card {
+    min-height: 0;
+  }
+
+  .guide-card {
+    min-height: 0;
+  }
+
+  /* ── Exam feature ── */
+  .exam-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-feature-copy {
+    padding: 22px;
+    flex-direction: column;
+  }
+
+  .exam-feature-copy h3 {
+    font-size: clamp(25px, 7vw, 32px);
+  }
+
+  .exam-feature-copy > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .exam-feature-copy > div > .library-action,
+  .exam-feature-copy > div > .link-button {
+    width: 100%;
+  }
+
+  .featured-media {
+    min-height: 240px;
+  }
+
+  /* ── Hub intro ── */
+  .hub-intro {
+    grid-template-columns: 1fr;
+    margin-bottom: 54px;
+    padding: 16px 0;
+    gap: 12px;
+  }
+
+  .hub-intro > p {
+    font-size: clamp(22px, 7.5vw, 30px);
+  }
+
+  .hub-intro > div {
+    padding-bottom: 4px;
+  }
+
+  /* ── Prep support ── */
+  .prep-support-card {
+    min-height: 0;
+  }
+
+  /* ── Prep module spacing ── */
+  .prep-module + .prep-module {
+    margin-top: 62px;
+  }
+
+  /* ── Showcase ── */
+  .showcase-viewport,
+  .showcase-slide,
+  .showcase-board {
+    min-height: clamp(460px, 125vw, 560px);
+  }
+
+  .showcase-controls {
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  /* ── Reference galleries ── */
+  .reference-gallery--isro-certificate .reference-grid,
+  .reference-gallery--sih .reference-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
+  }
+
+  .reference-gallery--isro-certificate .reference-card,
+  .reference-gallery--sih .reference-card {
+    grid-template-rows: 180px minmax(0, 1fr);
+    height: 320px;
+  }
+
+  .reference-gallery--isro-internships .reference-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+  }
+
+  /* ── Subject resource ── */
+  .subject-resource-action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-dashboard-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subject-dashboard-header h3 {
+    font-size: clamp(24px, 7vw, 30px);
+  }
+
+  /* ── Search overlay ── */
+  .search-overlay {
+    padding: 76px 10px 10px;
+  }
+
+  .search-panel {
+    padding: 9px;
+  }
+
+  .search-box {
+    height: 48px;
+  }
+
+  .search-box input {
+    font-size: 13px;
+  }
+
+  .search-result {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .search-result em {
+    display: none;
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .footer-inner button {
+    display: none;
+  }
+
+  /* ── Back to top ── */
+  .back-top {
+    right: 13px;
+    bottom: 13px;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* ── Mobile menu ── */
+  .mobile-menu {
+    position: fixed;
+    z-index: 190;
+    inset: 0;
+    display: block;
+    padding: 16px;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: -16px;
+    z-index: 1;
+    padding-top: 16px;
+    background: var(--bg);
+  }
+
+  .mobile-menu nav {
+    display: grid;
+    margin-top: 8px;
+  }
+
+  .mobile-menu nav button {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) 18px;
+    align-items: center;
+    min-height: 50px;
+    padding: 14px 2px;
+    color: var(--ink);
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .mobile-menu nav button span {
+    color: var(--quiet);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── Flip card ── */
+  .year-flip-card:hover .year-flip-card-inner {
+    filter: none;
+    transform: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    transform: rotateY(180deg);
+    filter: drop-shadow(0 21px 24px rgba(0,0,0,.3));
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front { pointer-events: none; }
+  .year-flip-card.is-flipped .year-flip-card-back { pointer-events: auto; }
+
+  /* ── Dashboard frame ── */
+  .dashboard-frame,
+  .showcase-innovation .dashboard-frame,
+  .showcase-research .dashboard-frame {
+    left: 12px;
+    width: calc(100% - 24px);
+  }
+
+  /* ── Upcoming heading ── */
+  .upcoming-display-heading {
+    padding: 52px 0 46px;
+  }
+
+  .upcoming-display-heading h2 {
+    font-size: clamp(58px, 15vw, 72px);
+  }
+}
+
+/* ── 7. SMALL MOBILE 320px – 375px ────────────────────────── */
+@media (max-width: 375px) {
+  /* ── Topbar ── */
+  .topbar {
+    height: 58px;
+  }
+
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: calc(100% - 28px);
+  }
+
+  .topbar-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+
+  .brand-glyph {
+    width: 27px;
+    height: 27px;
+    font-size: 15px;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand b {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .brand small {
+    font-size: 7px;
+    letter-spacing: 0.065em;
+  }
+
+  .search-trigger span {
+    display: none;
+  }
+
+  .icon-button {
+    height: 30px;
+  }
+
+  .topbar-actions {
+    gap: 4px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding-top: 40px;
+    min-height: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-dashboard-showcase .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hero-dashboard-showcase .hero-copy {
+    order: 1;
+  }
+
+  .hero-showcase {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 11vw, 44px);
+    line-height: 1;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero-buttons > span {
+    padding-left: 0;
+    border-left: 0;
+    font-size: 10px;
+  }
+
+  .primary-button {
+    min-height: 40px;
+    padding-inline: 12px;
+    font-size: 10px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin-top: 24px;
+  }
+
+  .hero-stat {
+    min-height: 70px;
+    padding: 11px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .hero-stat b {
+    font-size: 24px;
+  }
+
+  .hero-stat span {
+    font-size: 7.5px;
+    max-width: none;
+  }
+
+  .hero-rail {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-inline: 12px;
+    white-space: nowrap;
+    gap: 12px;
+    height: 52px;
+    margin-top: 36px;
+    font-size: 8px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding-block: 60px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .section-number {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .section-number i {
+    width: 36px;
+    height: 1px;
+  }
+
+  .section-number span {
+    font-size: 10px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(24px, 9.5vw, 34px);
+    overflow-wrap: anywhere;
+  }
+
+  .section-description {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .section-aside {
+    margin-top: 10px;
+  }
+
+  .count-chip {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* ── Resource grids: single column ── */
+  .three-grid,
+  .two-grid,
+  .internship-grid,
+  .company-grid,
+  .video-grid,
+  .certification-grid,
+  .hackathon-platform-grid,
+  .document-grid,
+  .guide-grid,
+  .prep-support-grid,
+  .iit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Resource card ── */
+  .resource-card {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .resource-card-copy {
+    padding: 16px 0 10px;
+  }
+
+  .resource-card h3 {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+  }
+
+  .resource-card p {
+    font-size: 11px;
+  }
+
+  /* ── Academic layout ── */
+  .academic-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* ── Subsection header ── */
+  .subsection-header {
+    display: block;
+    margin-top: 24px;
+  }
+
+  .subsection-header span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+
+  .subsection-header p {
+    font-size: 12px;
+  }
+
+  /* ── SIH Feature ── */
+  .sih-feature {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .sih-side {
+    display: none;
+  }
+
+  .sih-content {
+    padding: 18px;
+  }
+
+  .sih-brand {
+    align-items: flex-start;
+    min-width: 0;
+    margin-bottom: 24px;
+  }
+
+  .sih-brand .logo-mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  .sih-brand span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 7px;
+  }
+
+  .sih-content h3 {
+    font-size: clamp(28px, 10vw, 36px);
+  }
+
+  .sih-content > p:not(.eyebrow) {
+    font-size: 11.5px;
+  }
+
+  /* ── SIH Presentations ── */
+  .sih-presentations {
+    border-radius: 10px;
+  }
+
+  .sih-presentation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sih-presentation-actions {
+    gap: 5px;
+    padding-inline: 10px;
+  }
+
+  .presentation-action {
+    min-height: 36px;
+    padding-inline: 6px;
+    font-size: 10px;
+  }
+
+  /* ── Year flip ── */
+  .year-flip-grid {
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    gap: 12px;
+  }
+
+  .year-flip-card {
+    height: 300px;
+  }
+
+  .year-flip-card-front {
+    padding: 20px;
+  }
+
+  .year-flip-card-front strong {
+    font-size: clamp(38px, 11vw, 48px);
+  }
+
+  .year-flip-card-back {
+    padding: 14px;
+  }
+
+  .year-subject-row {
+    min-height: 36px;
+    padding: 5px 6px;
+  }
+
+  .year-subject-row b {
+    font-size: 9.5px;
+  }
+
+  .academic-grid-separator {
+    display: none;
+  }
+
+  /* ── IIT ── */
+  .iit-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .iit-card {
+    min-height: 0;
+  }
+
+  .iit-card .link-button {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .iit-toolbar {
+    display: block;
+  }
+
+  /* ── Company ── */
+  .company-controls {
+    grid-template-columns: 1fr;
+    position: static;
+    padding: 9px;
+  }
+
+  .company-controls small {
+    display: none;
+  }
+
+  .company-card {
+    min-height: 0;
+  }
+
+  .company-copy h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  /* ── YC Feature ── */
+  .yc-feature {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 18px;
+  }
+
+  .yc-feature .link-button {
+    grid-column: auto;
+  }
+
+  .yc-feature h3 {
+    font-size: 24px;
+  }
+
+  /* ── Document/guide grids ── */
+  .document-library {
+    grid-template-columns: 1fr;
+  }
+
+  .document-card {
+    min-height: 0;
+  }
+
+  .guide-card {
+    min-height: 0;
+  }
+
+  /* ── Exam feature ── */
+  .exam-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-feature-copy {
+    padding: 18px;
+  }
+
+  .exam-feature-copy h3 {
+    font-size: clamp(22px, 8.5vw, 30px);
+  }
+
+  .exam-feature-copy > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .exam-feature-copy > div > .library-action,
+  .exam-feature-copy > div > .link-button {
+    width: 100%;
+  }
+
+  .featured-media {
+    min-height: 220px;
+  }
+
+  .featured-media .media-play {
+    width: 55px;
+    height: 55px;
+  }
+
+  /* ── Hub intro ── */
+  .hub-intro {
+    grid-template-columns: 1fr;
+    margin-bottom: 46px;
+    padding: 14px 0;
+    gap: 10px;
+  }
+
+  .hub-intro > p {
+    font-size: clamp(20px, 8vw, 28px);
+  }
+
+  /* ── Prep support ── */
+  .prep-support-card {
+    min-height: 0;
+  }
+
+  /* ── Prep module spacing ── */
+  .prep-module + .prep-module {
+    margin-top: 56px;
+  }
+
+  /* ── Showcase ── */
+  .showcase-viewport,
+  .showcase-slide,
+  .showcase-board {
+    min-height: clamp(440px, 136vw, 500px);
+  }
+
+  .showcase-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-inline: 4px;
+  }
+
+  .showcase-indicators {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .showcase-indicators button.active i {
+    width: 24px;
+  }
+
+  .showcase-caption b {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 10px;
+  }
+
+  /* ── Reference galleries ── */
+  .reference-gallery--isro-certificate .reference-grid,
+  .reference-gallery--sih .reference-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
+  }
+
+  .reference-gallery--isro-certificate .reference-card,
+  .reference-gallery--sih .reference-card {
+    grid-template-rows: 170px minmax(0, 1fr);
+    height: 308px;
+  }
+
+  .reference-gallery--isro-internships .reference-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 100%;
+  }
+
+  /* ── Reference preview panel ── */
+  .reference-preview-panel header {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .reference-preview-panel header h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .reference-preview-actions {
+    flex: 0 0 auto;
+  }
+
+  /* ── Subject resource ── */
+  .subject-resource-action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-dashboard-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subject-dashboard-header h3 {
+    font-size: clamp(22px, 8vw, 28px);
+  }
+
+  .subject-dashboard-header > b {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 10px;
+  }
+
+  /* ── Search overlay ── */
+  .search-overlay {
+    padding: 72px 8px 8px;
+  }
+
+  .search-panel {
+    padding: 8px;
+  }
+
+  .search-box {
+    height: 46px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+    min-width: 0;
+  }
+
+  .search-result {
+    grid-template-columns: 30px 1fr;
+  }
+
+  .search-result em {
+    display: none;
+  }
+
+  .search-result > span small {
+    font-size: 10px;
+  }
+
+  /* ── Footer ── */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-inner button {
+    display: none;
+  }
+
+  /* ── Back to top ── */
+  .back-top {
+    right: 11px;
+    bottom: 11px;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* ── Mobile menu ── */
+  .mobile-menu {
+    position: fixed;
+    z-index: 190;
+    inset: 0;
+    display: block;
+    padding: 14px;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: -14px;
+    z-index: 1;
+    padding-top: 14px;
+    background: var(--bg);
+  }
+
+  .mobile-menu nav {
+    display: grid;
+    margin-top: 6px;
+  }
+
+  .mobile-menu nav button {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 16px;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 2px;
+    color: var(--ink);
+    background: transparent;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    text-align: left;
+  }
+
+  .mobile-menu nav button span {
+    color: var(--quiet);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+  }
+
+  /* ── Flip card ── */
+  .year-flip-card:hover .year-flip-card-inner {
+    filter: none;
+    transform: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    transform: rotateY(180deg);
+    filter: drop-shadow(0 21px 24px rgba(0,0,0,.3));
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front { pointer-events: none; }
+  .year-flip-card.is-flipped .year-flip-card-back { pointer-events: auto; }
+
+  /* ── Upcoming heading ── */
+  .upcoming-display-heading {
+    padding: 46px 0 40px;
+  }
+
+  .upcoming-display-heading h2 {
+    font-size: clamp(50px, 15.5vw, 62px);
+  }
+
+  /* ── Dashboard frame ── */
+  .dashboard-frame,
+  .showcase-innovation .dashboard-frame,
+  .showcase-research .dashboard-frame {
+    left: 10px;
+    width: calc(100% - 20px);
+  }
+
+  /* ── PYQ Library ── */
+  .pyq-library > header {
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .pyq-library-title > div {
+    min-width: 0;
+  }
+
+  /* ── Certification platform cards ── */
+  .certification-platform-card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .certification-platform-info {
+    min-height: 160px;
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .platform-certificate {
+    padding: 12px;
+  }
+
+  .platform-certificate-preview {
+    flex-basis: 140px;
+    height: 140px;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  /* ── Reference gallery — resume ── */
+  .reference-gallery--resume,
+  .reference-gallery--resume .reference-grid {
+    max-width: 100%;
+  }
+}
+
+/* ── 8. VERY SMALL SCREENS 320px ─────────────────────────── */
+@media (max-width: 320px) {
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: calc(100% - 24px);
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .brand b {
+    font-size: 9.5px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .hero-stat b {
+    font-size: 22px;
+  }
+
+  .sih-content h3 {
+    font-size: 26px;
+  }
+
+  .upcoming-display-heading h2 {
+    font-size: 46px;
+  }
+}
+
+/* ── 9. OVERFLOW PREVENTION — ALL SIZES ──────────────────── */
+
+/* Prevent sections from exceeding viewport width */
+.section,
+.topbar,
+.hero,
+.hero-grid,
+.site-footer,
+.search-overlay,
+.mobile-menu,
+.sih-feature,
+.sih-presentations,
+.reference-gallery--isro-certificate,
+.reference-gallery--sih,
+.reference-gallery--isro-internships,
+.certification-platform-grid,
+.year-flip-grid-wrap,
+.year-flip-grid {
+  max-width: 100%;
+}
+
+/* Containers must never overflow */
+.container,
+.topbar-inner,
+.hero-grid,
+.hero-stats,
+.hero-rail,
+.footer-inner {
+  max-width: 100%;
+}
+
+/* Cards that could overflow their grids */
+.resource-card,
+.company-card,
+.iit-card,
+.document-card,
+.guide-card,
+.prep-support-card,
+.certification-platform-card,
+.sih-presentation-card,
+.year-flip-card,
+.directory-box {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Text overflow in cards */
+.resource-card h3,
+.company-copy h3,
+.iit-card h3,
+.document-card-copy h3,
+.guide-card h3,
+.prep-support-card h3 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Horizontal scrollable elements get touch momentum */
+.hero-rail,
+.company-controls > div,
+.hub-intro > div,
+.desktop-nav {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.hero-rail::-webkit-scrollbar,
+.company-controls > div::-webkit-scrollbar,
+.hub-intro > div::-webkit-scrollbar,
+.desktop-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure the hero showcase never overflows on small screens */
+.showcase-viewport {
+  overflow: hidden;
+}
+
+/* Ecosystem orbit responsive adjustments */
+@media (max-width: 480px) {
+  .ecosystem-orbit {
+    height: 290px;
+  }
+
+  .orbit-one {
+    width: 230px;
+    height: 230px;
+  }
+
+  .orbit-two {
+    width: 370px;
+    height: 370px;
+  }
+
+  .ecosystem-core {
+    width: 84px;
+    height: 84px;
+    font-size: 27px;
+  }
+
+  .ecosystem-node {
+    font-size: 7px;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .ecosystem-orbit {
+    height: 260px;
+  }
+
+  .orbit-one {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orbit-two {
+    width: 330px;
+    height: 330px;
+  }
+
+  .ecosystem-core {
+    width: 76px;
+    height: 76px;
+    font-size: 24px;
+  }
+
+  .ecosystem-node {
+    font-size: 6.5px;
+    padding: 5px 7px;
+  }
+}
+
+/* ── 10. DASHBOARD STAMP OVERFLOW FIX ───────────────────── */
+@media (max-width: 480px) {
+  .dashboard-stamp {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .dashboard-stamp small {
+    max-width: 110px;
+  }
+}
+
+/* ── 11. FLOAT ELEMENT POSITIONING ─────────────────────── */
+/* Prevent floats from overlapping content on very narrow screens */
+@media (max-width: 375px) {
+  .roadmap-float,
+  .hackathon-float,
+  .checklist-float {
+    max-width: calc(45% - 14px);
+  }
+
+  .opportunities-float,
+  .startup-float,
+  .research-opportunities-float {
+    max-width: calc(52% - 14px);
+  }
+}
+
+/* ── 12. SCROLL SNAP FOR TOUCH HORIZONTAL SCROLLERS ───── */
+@media (max-width: 900px) {
+  .hero-rail {
+    scroll-snap-type: x proximity;
+  }
+
+  .hero-rail > span {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+
+  .company-controls > div {
+    scroll-snap-type: x proximity;
+  }
+
+  .company-controls > div > button {
+    scroll-snap-align: start;
+  }
+
+  .hub-intro > div {
+    scroll-snap-type: x proximity;
+  }
+
+  .hub-intro > div > b {
+    scroll-snap-align: start;
+  }
+}
+
+/* ── 13. SAFE AREA INSETS (iOS notch / home bar) ──────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-menu {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  .back-top {
+    bottom: max(13px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ── 14. FOOTER WATERMARK FIX ───────────────────────────── */
+/* Prevent the site-footer watermark text from causing overflow */
+.site-footer::before {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .site-footer::before {
+    font-size: clamp(44px, 14vw, 70px);
+  }
+}
+
+/* ── 15. RESOURCE HUB (directory page) RESPONSIVE ───────── */
+@media (max-width: 680px) {
+  .directory-shell {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .directory-nav .directory-shell {
+    min-height: 63px;
+  }
+}
+
+/* ── 16. PERFORMANCE: REDUCE PAINT ON HOVER ─────────────── */
+@media (hover: none) {
+  /* Disable hover transforms on touch devices */
+  .resource-card:hover,
+  .iit-card:hover,
+  .company-card:hover,
+  .document-card:hover,
+  .guide-card:hover,
+  .prep-support-card:hover {
+    transform: none;
+  }
+
+  .logo-mark {
+    transition: none;
+  }
+}
+
+/* ── 17. PRINT-STYLE SECTION PADDING SCALE ───────────────── */
+/* Graduated section padding ensures no dead space at any size */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .section {
+    padding-block: 108px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .section {
+    padding-block: 90px;
+  }
+}
+
+/* ── 18. CAROUSEL REFINEMENTS ───────────────────────────── */
+@media (max-width: 480px) {
+  .hero-carousel {
+    min-height: 0;
+    padding: 24px 56px 26px 23px;
+    border-radius: 10px;
+  }
+
+  .carousel-visual {
+    width: 240px;
+    height: 240px;
+    right: -8%;
+    top: 42%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-visual > b {
+    width: 70px;
+    height: 70px;
+    font-size: 23px;
+  }
+
+  .carousel-copy {
+    left: 23px;
+    right: 55px;
+    bottom: 26px;
+  }
+
+  .carousel-copy h2 {
+    font-size: clamp(28px, 9vw, 36px);
+  }
+
+  .carousel-copy > span {
+    font-size: 11px;
+  }
+
+  .carousel-indicators {
+    right: 13px;
+    gap: 8px;
+  }
+}
+
+/* ── 19. REDUCED MOTION ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-rail,
+  .company-controls > div,
+  .hub-intro > div {
+    scroll-behavior: auto;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ADDENDUM — Components discovered in second-pass inspection
+   ══════════════════════════════════════════════════════════ */
+
+/* ── A. REFERENCE GALLERIES: mobile tightening ─────────── */
+@media (max-width: 480px) {
+  .reference-gallery--featured {
+    max-width: 100%;
+    margin-top: 38px;
+  }
+
+  .reference-gallery--featured .reference-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 160px minmax(0, 1fr);
+    min-height: 0;
+    height: auto;
+  }
+
+  .reference-gallery--featured .reference-thumbnail {
+    height: 160px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 12px;
+  }
+
+  .reference-gallery--featured .reference-thumbnail img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .reference-gallery--featured .reference-card-copy {
+    padding: 16px;
+  }
+
+  .reference-gallery--featured .reference-card h3 {
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  /* Academic reference gallery: single column on small screens */
+  .reference-gallery--academic {
+    padding: 16px;
+    margin-top: 44px;
+  }
+
+  .reference-gallery--academic .reference-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .reference-gallery--academic .reference-card:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+}
+
+/* ── B. SIH PRESENTATIONS: extra small screens ─────────── */
+@media (max-width: 375px) {
+  .sih-presentations {
+    padding: 14px;
+    margin-top: 24px;
+  }
+
+  .sih-presentations-heading h3 {
+    font-size: clamp(18px, 6vw, 24px);
+  }
+
+  .sih-presentations-subheading {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .sih-presentations-subheading p {
+    margin-top: 6px;
+  }
+
+  .sih-presentation-grid--selected,
+  .sih-presentation-grid--submitted {
+    grid-template-columns: 1fr;
+  }
+
+  .sih-presentation-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sih-presentation-copy h4 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── C. PYQ LIBRARY: narrow screens ───────────────────── */
+@media (max-width: 480px) {
+  .pyq-paper-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 10px;
+  }
+
+  .pyq-library > header {
+    padding: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pyq-download-all {
+    width: 100%;
+  }
+
+  .pyq-library-title h4 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .pyq-paper-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pyq-library-title > div > span {
+    font-size: 9px;
+  }
+}
+
+/* ── D. SUBJECT STUDY GRID: stacking ──────────────────── */
+@media (max-width: 768px) {
+  .subject-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-study-card {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .subject-study-copy h3 {
+    font-size: clamp(20px, 5.5vw, 26px);
+  }
+}
+
+@media (max-width: 480px) {
+  .academics-subheading {
+    padding: 16px 0;
+    margin-bottom: 25px;
+  }
+
+  .academics-subheading h3 {
+    font-size: clamp(22px, 7vw, 30px);
+  }
+
+  .academics-subheading > span {
+    font-size: 11px;
+  }
+
+  .subject-study-materials {
+    margin-top: 52px;
+    padding: 30px 0;
+  }
+
+  .subject-code {
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .academic-exam-module {
+    margin-top: 56px;
+  }
+}
+
+/* ── E. COMPANY CARD: vertical layout on mobile ─────── */
+@media (max-width: 480px) {
+  .company-card {
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .company-brand > span {
+    display: none;
+  }
+
+  .company-copy {
+    padding-top: 14px;
+  }
+
+  .company-copy h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .company-copy p {
+    font-size: 10px;
+  }
+
+  .company-card footer {
+    font-size: 9px;
+  }
+}
+
+/* ── F. DOCUMENT LIBRARY HEADER: mobile ─────────────── */
+@media (max-width: 480px) {
+  .document-library-header {
+    padding: 11px 12px;
+  }
+
+  .document-library-header .logo-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .document-library-header b {
+    font-size: 11px;
+  }
+
+  .document-library-header small {
+    font-size: 9px;
+  }
+}
+
+/* ── G. PREPARATION HUB INTRO: overflow prevention ───── */
+@media (max-width: 768px) {
+  .hub-intro > div {
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .hub-intro > div::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── H. EXAM FEATURE: grid/column responsive ─────────── */
+@media (min-width: 601px) and (max-width: 767px) {
+  .exam-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-media {
+    min-height: 260px;
+  }
+
+  .exam-feature-copy {
+    padding: 28px;
+  }
+
+  .exam-feature-copy h3 {
+    font-size: clamp(26px, 5.5vw, 36px);
+  }
+}
+
+/* ── I. SECTION HEADING: overflow wrap ───────────────── */
+@media (max-width: 1024px) {
+  .section-heading h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .section-description {
+    max-width: 100%;
+  }
+}
+
+/* ── J. TOPBAR: prevent overflow on very small screens ── */
+@media (max-width: 360px) {
+  .topbar-inner {
+    gap: 8px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .topbar-actions {
+    gap: 3px;
+  }
+
+  .icon-button {
+    width: 29px;
+    height: 29px;
+    padding: 0;
+  }
+}
+
+/* ── K. HERO BUTTONS: stack properly on all mobile ────── */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* ── L. RESOURCE CARD: prevent minimum height forcing overflow ── */
+@media (max-width: 600px) {
+  .resource-card {
+    min-height: 0 !important;
+  }
+
+  .iit-card {
+    min-height: 0 !important;
+  }
+
+  .document-card {
+    min-height: 0 !important;
+  }
+
+  .guide-card {
+    min-height: 0 !important;
+  }
+
+  .prep-support-card {
+    min-height: 0 !important;
+  }
+}
+
+/* ── M. FOOTER: site-footer watermark containment ──────── */
+.site-footer {
+  overflow: hidden;
+}
+
+/* ── N. SEARCH OVERLAY: safe padding ───────────────────── */
+@media (max-width: 768px) {
+  .search-overlay {
+    padding-top: max(80px, env(safe-area-inset-top, 80px));
+  }
+}
+
+/* ── O. BACK-TO-TOP BUTTON: safe area ──────────────────── */
+@supports (bottom: env(safe-area-inset-bottom)) {
+  .back-top {
+    bottom: max(13px, calc(env(safe-area-inset-bottom) + 8px));
+  }
+}
+
+/* ── P. IIT TOOLBAR: responsive layout ─────────────────── */
+@media (max-width: 600px) {
+  .iit-toolbar {
+    display: block;
+  }
+
+  .iit-toolbar p {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .iit-toolbar p span {
+    display: block;
+    margin-top: 4px;
+  }
+
+  .iit-toolbar > span {
+    display: block;
+    margin-top: 8px;
+    font-size: 8px;
+  }
+}
+
+/* ── Q. YEAR FLIP CARD: prevent fixed grid overflow ─────── */
+/* The year-flip-grid uses minmax(340px, ...) which breaks on small screens */
+@media (max-width: 760px) {
+  .year-flip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(10px, 3vw, 32px) !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .year-flip-grid {
+    grid-template-columns: minmax(0, 440px) !important;
+    justify-content: center !important;
+  }
+}
+
+/* ── R. SUBSECTION HEADER: overflow prevention ─────────── */
+@media (max-width: 600px) {
+  .subsection-header {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── S. RESOURCE GRID: prevent fixed column overflow ────── */
+/* Force any stuck n-col grid to collapse on mobile */
+@media (max-width: 480px) {
+  .resource-grid:not(.hackathon-platform-grid) {
+    grid-template-columns: 1fr !important;
+  }
+
+  .certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── T. HERO ROTATOR: prevent overflow ──────────────────── */
+@media (max-width: 600px) {
+  .hero-rotator {
+    max-width: 100%;
+  }
+
+  .rotator-copy b {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+
+  .rotator-copy p {
+    font-size: 11px;
+  }
+}
+
+/* ── U. DASHBOARD: hero dashboard overflow fix ─────────── */
+@media (max-width: 600px) {
+  .hero-dashboard {
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .dashboard-content {
+    padding: 24px 18px;
+  }
+
+  .dashboard-title h2 {
+    font-size: clamp(20px, 6vw, 26px);
+  }
+
+  .dashboard-stamp {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .dashboard-stamp small {
+    max-width: 110px;
+  }
+}
+
+/* ── V. HERO DASHBOARD SHOWCASE: float element clipping ─── */
+/* Ensure floating elements don't overflow the showcase viewport */
+@media (max-width: 480px) {
+  .roadmap-float,
+  .hackathon-float,
+  .checklist-float {
+    max-width: min(155px, 43%);
+    overflow: hidden;
+  }
+
+  .opportunities-float,
+  .startup-float,
+  .research-opportunities-float {
+    max-width: min(185px, 50%);
+    overflow: hidden;
+  }
+}
+
+/* ── W. HERO STATS: fix 2-col grid on very narrow ───────── */
+@media (max-width: 340px) {
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── X. COMPANY GRID: 2-col minimum until 390px ─────────── */
+@media (min-width: 391px) and (max-width: 480px) {
+  .company-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── Y. SECTION PADDING: graduated scale ─────────────────── */
+@media (max-width: 375px) {
+  .section {
+    padding-block: 54px;
+  }
+}
+
+/* ── Z. PREP SUPPORT GRID: 2-col on tablet ───────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .prep-support-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── AA. DOCUMENT GRID: 2-col on tablet ─────────────────── */
+@media (min-width: 601px) and (max-width: 900px) {
+  .document-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── AB. VIDEO GRID: tablet optimization ─────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ── AC. IIT GRID: mid-tablet optimization ───────────────── */
+@media (min-width: 601px) and (max-width: 820px) {
+  .iit-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .iit-card {
+    min-height: 210px;
+  }
+
+  .iit-card .link-button {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* ── AD. SECTION NUMBER: Tablet display ──────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-heading {
+    display: grid;
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .section-number {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-number i {
+    height: 36px;
+  }
+}
+
+/* ── AE. TOPBAR INNER: prevent 3-col collapse ───────────── */
+@media (max-width: 1024px) {
+  .topbar-inner {
+    grid-template-columns: 1fr auto !important;
+  }
+}
+
+/* ── AF. COMPANY CONTROLS: sticky positioning ───────────── */
+@media (min-width: 1025px) {
+  .company-controls {
+    position: sticky;
+    top: 91px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .company-controls {
+    position: sticky;
+    top: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .company-controls {
+    position: static;
+  }
+}
+
+/* ── AG. INTERNSHIP GRID: responsive columns ─────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .internship-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .internship-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── AH. HACKATHON PLATFORM GRID ─────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hackathon-platform-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── AI. THREE GRID: tablet becomes 2-col ────────────────── */
+@media (min-width: 601px) and (max-width: 900px) {
+  .three-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* ── AJ. HERO H1 OVERFLOW CLAMP ─────────────────────────── */
+.hero h1 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ── AK. GLOBALLY FIX OVERFLOWING FIXED-WIDTH WRAPPERS ──── */
+/* The .topbar-inner uses min(1440px, calc(100% - 56px)) 
+   which should always be safe, but add belt-and-suspenders: */
+.topbar-inner,
+.hero-grid,
+.container,
+.hero-stats,
+.hero-rail,
+.footer-inner {
+  overflow-x: clip;
+}
+
+/* ── AL. MOBILE MENU: ensure it doesn't exceed viewport ─── */
+.mobile-menu {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+/* ── AM. SCROLL CONTAINER: prevent nested overflow ───────── */
+.codex-site {
+  overflow-x: clip;
+}
+
+/* ── AN. CERTIFICATION PLATFORM GRID: 1-col on mobile ───── */
+@media (max-width: 520px) {
+  .certification-platform-card {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+  }
+
+  .certification-platform-info {
+    min-height: 0;
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .platform-certificate {
+    padding: 12px;
+  }
+
+  .platform-certificate-preview {
+    flex-basis: 140px;
+    height: 140px;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+}
+
+/* ── AO. SIH CONTENT: fix h3 responsive font ────────────── */
+@media (max-width: 375px) {
+  .sih-content h3 {
+    font-size: clamp(26px, 9.5vw, 34px) !important;
+  }
+}
+
+/* ── AP. HERO RAIL: items should not cause overflow ──────── */
+.hero-rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ── AQ. PREPARATION HUB: responsive heading ─────────────── */
+@media (max-width: 480px) {
+  .upcoming-display-heading h2 {
+    font-size: clamp(48px, 14.5vw, 64px) !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .upcoming-display-heading h2 {
+    font-size: clamp(40px, 13vw, 52px) !important;
+  }
+}
+
+/* ── AR. RECOMMENDATION SHOWCASE: mobile ─────────────────── */
+@media (max-width: 480px) {
+  .recommendation-showcase {
+    padding: 15px;
+  }
+
+  .recommendation-resource-intro {
+    display: block;
+  }
+
+  .recommendation-resource-intro span {
+    font-size: 16px;
+  }
+
+  .recommendation-resource-intro p {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+}
+
+/* ── AS. SECTION IIT BACKGROUND: no z-index bleed ───────── */
+@media (max-width: 600px) {
+  .section-space::before,
+  .section-iit::before,
+  .section-careers::before {
+    display: none;
+  }
+}
+
+/* ── AT. SAFE AREA: mobile bottom padding ──────────────────── */
+@media (max-width: 1024px) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════
+   FINAL PASS — Comprehensive Section & Edge-Case Fixes
+   ══════════════════════════════════════════════════════════ */
+
+/* ── AU. TOPBAR: 3-col → 2-col collapse rule (global) ─────── */
+/* styles.css topbar-inner uses 3-col at desktop;
+   ensure it cleanly collapses to 2-col below 1024px */
+@media (max-width: 1024px) {
+  .topbar-inner {
+    grid-template-columns: 1fr auto !important;
+    gap: 12px;
+  }
+}
+
+/* ── AV. NAV SCROLLING on small laptop: prevent overflow ───── */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .desktop-nav {
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .desktop-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .desktop-nav button {
+    padding: 8px 7px;
+    font-size: 8px;
+  }
+}
+
+/* ── AW. HERO GRID: prevent 2-col at mid-tablet ─────────────── */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── AX. SECTION HEADING: 3-col → 2-col on tablet ──────────── */
+/* styles.css uses 3-col (84px + 1fr + auto); responsive-master 
+   already overrides this at tablet, but styles.css 900px rule 
+   uses 52px. Unify: */
+@media (max-width: 900px) {
+  .section-heading {
+    grid-template-columns: 52px 1fr;
+    gap: 16px;
+  }
+
+  .section-aside {
+    grid-column: 2;
+    padding-top: 0;
+  }
+
+  .section-number i {
+    height: 36px;
+  }
+}
+
+/* ── AY. COMPANY GRID: 3-col at base, correct responsive ───── */
+/* styles.css has company-grid as repeat(3,1fr) at base.
+   Correct: 4-col on big screens (via large-desktop rule),
+   3-col on standard laptop (default), 2-col on tablet,
+   1-col on mobile */
+@media (min-width: 1601px) {
+  .company-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .company-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ── AZ. INTERNSHIP GRID: 4-col base → responsive ─────────── */
+/* styles.css has internship-grid repeat(4,1fr) at base */
+@media (min-width: 1601px) {
+  .internship-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) and (min-width: 901px) {
+  .internship-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ── BA. CERTIFICATION GRID: 5-col base → responsive ──────── */
+/* styles.css has certification-grid repeat(5,1fr) at base */
+@media (max-width: 1180px) and (min-width: 901px) {
+  .certification-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ── BB. IIT GRID: 7-col base → responsive ─────────────────── */
+/* styles.css has iit-grid repeat(7,1fr) at base */
+@media (max-width: 1180px) and (min-width: 901px) {
+  .iit-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* ── BC. REFERENCE PREVIEW PANEL: mobile ───────────────────── */
+@media (max-width: 600px) {
+  .reference-preview-backdrop {
+    padding: 0;
+  }
+
+  .reference-preview-panel {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reference-preview-panel header {
+    flex-shrink: 0;
+    padding: 12px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .reference-preview-panel header h2 {
+    font-size: clamp(14px, 4vw, 18px);
+    overflow-wrap: anywhere;
+  }
+
+  .reference-preview-viewport {
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 375px) {
+  .reference-preview-panel header {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reference-preview-actions {
+    align-self: flex-end;
+  }
+}
+
+/* ── BD. RECOMMENDATION SHOWCASE: tablet ───────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .recommendation-showcase {
+    gap: 24px;
+  }
+
+  .document-library {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── BE. DOCUMENT LIBRARY HEADER: tablet ───────────────────── */
+@media (max-width: 768px) {
+  .document-library-header {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .document-library-header b {
+    font-size: 12px;
+  }
+
+  .document-library-header small {
+    font-size: 10px;
+  }
+}
+
+/* ── BF. PREPARATION HUB: hub-intro scrollable tags ────────── */
+@media (max-width: 1024px) {
+  .hub-intro > div {
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .hub-intro > div::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── BG. GUIDE GRID: tablet optimization ───────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .guide-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ── BH. TUTORIAL INTRO: mobile wrap ───────────────────────── */
+@media (max-width: 480px) {
+  .tutorial-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .tutorial-intro svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+  }
+}
+
+/* ── BI. DIRECTORY NOTE: mobile wrap ───────────────────────── */
+@media (max-width: 480px) {
+  .directory-note {
+    font-size: 10px;
+  }
+}
+
+/* ── BJ. SEARCH OVERLAY: wider search panel padding ─────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .search-overlay {
+    padding: 100px 20px 20px;
+  }
+}
+
+/* ── BK. SEARCH RESULTS: grid on tablet ─────────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .search-result {
+    grid-template-columns: 34px 1fr auto 16px;
+  }
+}
+
+/* ── BL. YC EMBLEM: tablet sizing ──────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .yc-emblem .logo-mark {
+    width: 72px;
+    height: 72px;
+  }
+
+  .yc-emblem .logo-mark svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ── BM. SIH BRAND: tablet overflow ────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sih-brand {
+    margin-bottom: 32px;
+  }
+
+  .sih-content {
+    padding: 32px;
+  }
+}
+
+/* ── BN. BACK-TO-TOP: tablet position ──────────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .back-top {
+    right: 16px;
+    bottom: 16px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ── BO. SECTION SOFT: prevent border bleed ─────────────────── */
+/* section-soft has border-block; ensure it doesn't create double
+   borders at section boundaries */
+.section-soft + .section-soft {
+  border-top: 0;
+}
+
+/* ── BP. BRAND: prevent overflow at any size ───────────────── */
+.brand {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.brand b,
+.brand small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── BQ. IIT CARD LINK BUTTON: wrapping ─────────────────────── */
+@media (max-width: 1200px) {
+  .iit-card .link-button {
+    white-space: normal;
+    text-align: center;
+    min-height: 36px;
+    line-height: 1.3;
+  }
+}
+
+/* ── BR. COMPANY CARD: grid alignment fix ───────────────────── */
+/* company-card uses 3-col grid. On medium screens, make brand+copy
+   properly flow */
+@media (max-width: 600px) {
+  .company-card {
+    grid-template-columns: 34px 1fr 15px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .company-brand {
+    display: contents;
+  }
+
+  .company-copy {
+    padding-top: 0;
+  }
+}
+
+/* ── BS. EXAM FEATURE VIDEO IFRAME: responsive ──────────────── */
+/* The tutorial-media contains an iframe embed */
+iframe {
+  max-width: 100%;
+  border: 0;
+}
+
+.tutorial-media iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+@media (max-width: 480px) {
+  .tutorial-media:not(.featured-media) {
+    min-height: 180px;
+  }
+}
+
+/* ── BT. HERO ROTATOR: prevent 535px fixed max overflow ─────── */
+/* transformation.css: .hero-rotator { max-width: 535px } 
+   This is safe (max-width), but the element itself should fit */
+.hero-rotator {
+  min-width: 0;
+  width: 100%;
+}
+
+/* ── BU. HERO DASHBOARD: transform.css min-height 490px ────── */
+/* transformation.css: .hero-dashboard { min-height: 490px }
+   Override on small screens */
+@media (max-width: 480px) {
+  .hero-dashboard {
+    min-height: 0 !important;
+  }
+}
+
+/* ── BV. ECOSYSTEM ORBIT CONTAINER: overflow hidden ─────────── */
+.hero-ecosystem {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .hero-ecosystem {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .ecosystem-orbit {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .orbit-two {
+    max-width: calc(200vw);
+  }
+}
+
+/* ── BW. CERTIFICATION PLATFORM GRID: gap at tablet ─────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .certification-platform-grid {
+    gap: 14px;
+  }
+}
+
+/* ── BX. SECTION HEADING: 3-col → 2-col at 1024px ─────────── */
+/* styles.css uses 84px + 1fr + auto (3-col).
+   At tablet, it should collapse to 2-col cleanly */
+@media (max-width: 1024px) {
+  .section-heading {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .section-aside {
+    grid-column: 2;
+  }
+}
+
+/* When section-heading is a single-col block (mobile) */
+@media (max-width: 767px) {
+  .section-heading {
+    display: block;
+  }
+
+  .section-aside {
+    grid-column: auto;
+    display: block;
+    margin-top: 12px;
+  }
+}
+
+/* ── BY. HERO STATS: 4-col → 2-col base ────────────────────── */
+/* styles.css doesn't define hero-stats grid explicitly.
+   From transformation.css inspection, it's flex-based.
+   Ensure 2-col on mobile */
+@media (max-width: 600px) {
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── BZ. FOOTER: brand + text stacking ──────────────────────── */
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .footer-inner p {
+    max-width: 100%;
+  }
+}
+
+/* ── CA. PREP MODULE: gap between prep sections ─────────────── */
+@media (max-width: 480px) {
+  .prep-module {
+    padding-top: 0;
+  }
+}
+
+/* ── CB. REFERENCE GALLERY: prevent gallery header overflow ─── */
+.reference-gallery-heading h3 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .reference-gallery-heading {
+    padding: 12px 0;
+  }
+
+  .reference-gallery-heading h3 {
+    font-size: clamp(18px, 5.5vw, 24px);
+  }
+}
+
+/* ── CC. GLOBAL SCROLL SAFETY: horizontal clip ──────────────── */
+/* Belt-and-suspenders: ensure root containers never cause hscroll */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+/* ── CD. PREPARATION HUB SECTION PADDING ───────────────────── */
+@media (max-width: 1024px) {
+  .preparation-hub {
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preparation-hub {
+    padding-bottom: 60px;
+  }
+}
+
+/* ── CE. GUIDE CARD VIDEO PREVIEW: responsive height ────────── */
+@media (max-width: 600px) {
+  .guide-card .tutorial-media {
+    min-height: 160px;
+  }
+
+  .guide-card .guide-card-copy {
+    padding: 14px;
+  }
+
+  .guide-card .guide-card-copy h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── CF. DOCUMENT CARD: compact on mobile ───────────────────── */
+@media (max-width: 480px) {
+  .document-card {
+    padding: 14px;
+  }
+
+  .document-card-copy h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .document-card-copy p {
+    font-size: 10px;
+  }
+}
+
+/* ── CG. SIH PRESENTATIONS HEADING: responsive ─────────────── */
+@media (max-width: 600px) {
+  .sih-presentations-heading {
+    gap: 10px;
+  }
+
+  .sih-presentations-heading h3 {
+    font-size: clamp(18px, 5.5vw, 26px);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── CH. PREP SUPPORT CARD: tablet layout ───────────────────── */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .prep-support-card {
+    padding: 18px;
+  }
+
+  .prep-support-card h3 {
+    font-size: clamp(16px, 2.5vw, 20px);
+  }
+}
+
+/* ── CI. ACADEMIC EXAM MODULE: section gap ──────────────────── */
+@media (max-width: 768px) {
+  .academic-exam-module {
+    margin-top: 56px;
+  }
+}
+
+/* ── CJ. IFRAMES IN GUIDE CARDS: aspect ratio ───────────────── */
+@media (max-width: 1024px) {
+  .guide-card .tutorial-media {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    height: auto;
+  }
+
+  .guide-card .tutorial-media iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  .guide-card .tutorial-media:has(iframe) {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+/* ── CK. YEAR FLIP NOTE: mobile font ───────────────────────── */
+@media (max-width: 480px) {
+  .year-flip-note {
+    font-size: 11px;
+    gap: 7px;
+    padding: 0 4px;
+  }
+}
+
+/* ── CL. RESOURCE CARD: overflow on title ───────────────────── */
+.resource-card h3 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ── CM. ACADEMICS SUBHEADING: responsive ───────────────────── */
+@media (max-width: 1024px) {
+  .academics-subheading h3 {
+    font-size: clamp(22px, 3.5vw, 32px);
+    overflow-wrap: anywhere;
+  }
+}
+
+/* ── CN. INTERNSHIP GRID CARD SIZING ────────────────────────── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .internship-grid .resource-card {
+    min-height: 0;
+  }
+}
+
+/* ── CO. COMPANY CONTROLS: scrollable filter row ────────────── */
+.company-controls > div {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.company-controls > div::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── CP. GLOBAL: Minimum touch target ───────────────────────── */
+/* Ensure all interactive elements have at least 44px touch target */
+@media (max-width: 1024px) {
+  .link-button,
+  .library-action,
+  .presentation-action {
+    min-height: 40px;
+  }
+
+  .primary-button {
+    min-height: 44px;
+  }
+}
+
+/* ── CQ. SECTION-HACKATHONS: sih-watermark overflow ─────────── */
+/* .sih-watermark { font-size: 260px } — massive, needs containment */
+.sih-feature {
+  overflow: hidden;
+}
+
+.sih-watermark {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .sih-watermark {
+    font-size: 160px;
+    right: -10px;
+    bottom: -30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .sih-watermark {
+    font-size: 130px;
+  }
+}
+
+/* ── CR. BODY MIN-WIDTH OVERRIDE ────────────────────────────── */
+/* styles.css sets body { min-width: 320px } — this is correct
+   and prevents browser from ever sizing narrower than 320px */
+/* No change needed; kept as documentation. */
+
+/* ── CS. SCROLL-PADDING: topbar height adjustment ───────────── */
+/* styles.css: html { scroll-padding-top: 100px }
+   Adjust for smaller topbars on mobile */
+@media (max-width: 1024px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 68px;
+  }
+}
+
+/* ── CT. BODY GRID DOT PATTERN: prevent overflow ────────────── */
+/* styles.css: body::before has position:fixed; inset:0 — safe */
+
+/* ── CU. EXAM FEATURE COPY: flex wrapping ───────────────────── */
+@media (max-width: 1024px) {
+  .exam-feature-copy {
+    flex-direction: column;
+  }
+
+  .exam-feature-copy > div {
+    width: 100%;
+  }
+}
+
+/* ── CV. REFERENCE GRID SINGLE: center on mobile ────────────── */
+@media (max-width: 600px) {
+  .reference-grid.single-reference {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .reference-grid.single-reference .reference-card {
+    max-width: 460px;
+    width: 100%;
+    margin-inline: auto;
+  }
+}
+
+/* ── CW. BACK TO ACADEMIC BUTTON: mobile display ────────────── */
+@media (max-width: 600px) {
+  .subject-dashboard-back {
+    min-height: 40px;
+    font-size: 11px;
+    gap: 6px;
+  }
+}
+
+/* ── CX. COUNT CHIP: prevent overflow on small cards ────────── */
+@media (max-width: 480px) {
+  .count-chip {
+    font-size: 8px;
+    padding: 5px 7px;
+  }
+}
+
+/* ── CY. GLOBAL IMAGE SAFETY: object-fit ───────────────────── */
+/* All images should maintain aspect ratio */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Exception: images used as backgrounds or fit to containers */
+.reference-thumbnail img,
+.sih-presentation-preview img,
+.platform-certificate-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── CZ. FINAL: z-index safety for overlays ─────────────────── */
+/* Ensure mobile menu sits above all content */
+.mobile-menu {
+  isolation: isolate;
+}
+
+/* Ensure search overlay sits above all content including topbar */
+.search-overlay {
+  isolation: isolate;
+}
+
+/* ── DA. VERY SMALL SCREENS (< 320px) edge safety ──────────── */
+@media (max-width: 319px) {
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail {
+    width: calc(100% - 20px);
+  }
+
+  .brand b {
+    font-size: 9px;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .section-heading h2 {
+    font-size: 20px;
+  }
+}
