@@ -711,10 +711,10 @@ function App() {
             <div className="academics-subheading" data-reveal><p>RGPV subject study materials</p><h3 id="subject-materials-title">Choose your academic year, then open the subject that you want to study.</h3><span>Hover to reveal subjects on desktop, or tap a card on mobile. BEEE and TOC include original resources and dedicated AI study spaces.</span></div>
             <div className="year-flip-grid-wrap"><div className="year-flip-grid">{academicYears.map(year => <AcademicYearFlipCard key={year.id} year={year} onSubjectSelect={setSelectedAcademicSubject} />)}</div><span className="academic-grid-separator" aria-hidden="true"><i /><i /></span></div>
             <figure className="exam-writing-sample" data-reveal>
-              <figcaption><span>RGPV exam answer-writing sample</span><h4>How to write in an exam</h4><p>A structured handwritten example with headings, diagrams, comparisons and a conclusion.</p></figcaption>
+              <figcaption className="exam-writing-sample-copy"><span>RGPV exam answer-writing sample</span><h4>How to Write in an Exam</h4><p>A structured handwritten example with headings, diagrams, comparisons and a conclusion.</p><button className="exam-writing-sample-cta" type="button" onClick={() => setSelectedReference(referenceImages.rgpvExamWriting)}>Explore Full Sample <ArrowUpRight size={15} /></button></figcaption>
               <button className="exam-writing-sample-preview" type="button" onClick={() => setSelectedReference(referenceImages.rgpvExamWriting)} aria-label="View the RGPV exam answer-writing sample in full size">
                 <img src={referenceImages.rgpvExamWriting.src} alt="Handwritten RGPV exam answer-writing sample" loading="lazy" />
-                <span><Maximize2 size={15} /> View full sample</span>
+                <span>View Full Sample ↗</span>
               </button>
             </figure>
             <p className="year-flip-note"><Sparkles size={14} />Hover or tap an academic year to flip the card and reveal its subjects.</p>
