@@ -267,6 +267,7 @@ const referenceImages = {
   finalMarksheet: { name: 'Final Marksheet', title: 'Final Marksheet – Reference', src: new URL('../Images/Final Marksheet.jpeg', import.meta.url).href },
   backMarksheet: { name: 'Back Marksheet', title: 'Back Marksheet – Reference', src: new URL('../Images/Back Marksheet.jpeg', import.meta.url).href },
   seventhSemester: { name: '7th Sem', title: '7th Sem – Reference', src: new URL('../Images/7th Sem.jpeg', import.meta.url).href },
+  rgpvExamWriting: { name: 'RGPV Exam Answer-Writing Sample', title: 'How to Write in an RGPV Exam – Sample', src: new URL('../How to Write In  exam/Exam.png', import.meta.url).href },
   resume1: { name: 'Resume 1', title: 'Resume 1 – Reference', src: new URL('../Images/Resume 1.jpeg', import.meta.url).href },
   resume2: { name: 'Resume 2', title: 'Resume 2 – Reference', src: new URL('../Images/Resume 2.jpeg', import.meta.url).href },
 } satisfies Record<string, ReferenceImage>
@@ -709,6 +710,13 @@ function App() {
           <section id="year-study-materials" className="subject-study-materials" aria-labelledby="subject-materials-title">
             <div className="academics-subheading" data-reveal><p>RGPV subject study materials</p><h3 id="subject-materials-title">Choose your academic year, then open the subject that you want to study.</h3><span>Hover to reveal subjects on desktop, or tap a card on mobile. BEEE and TOC include original resources and dedicated AI study spaces.</span></div>
             <div className="year-flip-grid-wrap"><div className="year-flip-grid">{academicYears.map(year => <AcademicYearFlipCard key={year.id} year={year} onSubjectSelect={setSelectedAcademicSubject} />)}</div><span className="academic-grid-separator" aria-hidden="true"><i /><i /></span></div>
+            <figure className="exam-writing-sample" data-reveal>
+              <figcaption><span>RGPV exam answer-writing sample</span><h4>How to write in an exam</h4><p>A structured handwritten example with headings, diagrams, comparisons and a conclusion.</p></figcaption>
+              <button className="exam-writing-sample-preview" type="button" onClick={() => setSelectedReference(referenceImages.rgpvExamWriting)} aria-label="View the RGPV exam answer-writing sample in full size">
+                <img src={referenceImages.rgpvExamWriting.src} alt="Handwritten RGPV exam answer-writing sample" loading="lazy" />
+                <span><Maximize2 size={15} /> View full sample</span>
+              </button>
+            </figure>
             <p className="year-flip-note"><Sparkles size={14} />Hover or tap an academic year to flip the card and reveal its subjects.</p>
           </section>
           {selectedAcademicSubject && selectedAcademicYear && <SubjectResourceDashboard subject={selectedAcademicSubject} year={selectedAcademicYear} onBack={returnToAcademicYears} />}
