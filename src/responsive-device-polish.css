@@ -304,3 +304,37 @@
 
   .year-subject-row i { display: none; }
 }
+
+/* Keep an open academic-year panel above the following exam sample without
+   changing the card grid's dimensions. The sample is a later sibling in the
+   document, so the selector grid needs its own local stacking layer. */
+.subject-study-materials { position: relative; overflow: visible; }
+.year-flip-grid-wrap,
+.year-flip-grid,
+.year-flip-card { overflow: visible; }
+.year-flip-grid-wrap { z-index: 2; }
+.year-flip-card.is-flipped,
+.year-flip-card:focus-within { z-index: 4; }
+.exam-writing-sample { position: relative; z-index: 0; }
+
+@media (hover: hover) {
+  .year-flip-card:hover { z-index: 4; }
+}
+
+/* Touch layouts render the selected subject list as a local overlay rather
+   than in normal flow. This prevents it from pushing down or appearing under
+   the exam-writing sample while retaining the same card dimensions. */
+@media (max-width: 1024px) {
+  .year-flip-card-inner { position: relative; overflow: visible; }
+
+  .year-flip-card.is-flipped .year-flip-card-back {
+    position: absolute;
+    z-index: 2;
+    top: calc(100% + 12px);
+    right: 0;
+    left: 0;
+    height: auto;
+    margin-top: 0;
+    overflow: auto;
+  }
+}
