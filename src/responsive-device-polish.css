@@ -41,6 +41,49 @@
   .year-flip-card-back { scrollbar-width: thin; }
 
   .institutional-document-showcase { max-width: none; }
+
+  /* Touch devices use an in-flow subject panel rather than a 3D face.
+     This has to load after the desktop flip polish so an invisible front
+     face cannot reserve space above the open subject list on Android. */
+  .year-flip-card {
+    height: auto;
+    min-height: 300px;
+    perspective: none;
+    -webkit-perspective: none;
+  }
+
+  .year-flip-card-inner,
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    height: auto;
+    transform: none;
+    -webkit-transform: none;
+    transform-style: flat;
+    -webkit-transform-style: flat;
+  }
+
+  .year-flip-card-face {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 300px;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transform: none;
+    -webkit-transform: none;
+  }
+
+  .year-flip-card-back {
+    display: none;
+    margin-top: 12px;
+    overflow-y: visible;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front {
+    pointer-events: auto;
+    border-color: var(--accent);
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-back { display: flex; }
 }
 
 @media (max-width: 900px) {
@@ -131,7 +174,7 @@
   .company-grid,
   .iit-grid { grid-template-columns: 1fr; }
 
-  .year-flip-card { height: 318px; }
+  .year-flip-card { height: auto; }
 
   .year-flip-card-back { padding: 13px; }
 
