@@ -200,18 +200,18 @@ const internshipResources: Resource[] = [
 ]
 
 const iitResources: Resource[] = [
-  { name: 'IIT Kharagpur', description: 'Application information: Not publicly listed.', label: 'Details awaited', section: 'iit', logo: 'IIT KGP' }, { name: 'IIT Bombay', description: 'Application period: May–June.', label: 'May–June', section: 'iit', logo: 'IITB' },
-  { name: 'IIT Madras', description: 'Summer Student Program (SSP).', href: 'https://ssp.iitm.ac.in/summer-fellowship-registration', label: 'Summer Student Program', section: 'iit', logo: 'IITM' }, { name: 'IIT Kanpur', description: 'Application information: ₹750 for the first round.', label: 'Application details', section: 'iit', logo: 'IITK' },
-  { name: 'IIT Delhi', description: 'Application period: February–March 2026.', label: 'Feb–Mar 2026', section: 'iit', logo: 'IITD' }, { name: 'IIT Guwahati', description: 'Application information: Not publicly listed.', label: 'Details awaited', section: 'iit', logo: 'IITG' },
-  { name: 'IIT Roorkee', description: 'SPARK Summer Internship.', href: 'https://spark.iitr.ac.in/', label: 'SPARK programme', section: 'iit', logo: 'IITR' }, { name: 'IIT BHU Varanasi', description: 'Application information: Not publicly listed.', label: 'Details awaited', section: 'iit', logo: 'IIT BHU' },
-  { name: 'IIT Bhubaneswar', description: 'Application period: March.', label: 'March', section: 'iit', logo: 'IIT BBS' }, { name: 'IIT Gandhinagar', description: 'SRIP 2026.', href: 'https://srip.iitgn.ac.in/info/srip-2026/', label: 'SRIP 2026', section: 'iit', logo: 'IITGN' },
-  { name: 'IIT Hyderabad', description: 'Summer Internship Brochure 2025–26.', href: 'https://ocs.iith.ac.in/Overall%20Internship%20Brochure%202025-2026.pdf', label: 'Brochure 2025–26', section: 'iit', logo: 'IITH' }, { name: 'IIT Jodhpur', description: 'SURAJ Summer Research Program.', href: 'https://www.iitj.ac.in/suraj/en/suraj', label: 'SURAJ programme', section: 'iit', logo: 'IITJ' },
-  { name: 'IIT Patna', description: 'Application period: May–June.', label: 'May–June', section: 'iit', logo: 'IITP' }, { name: 'IIT Ropar', description: 'Official CSE research opportunities.', href: 'https://ccse.iitrpr.ac.in/', label: 'Official website', section: 'iit', logo: 'IIT RPR' },
-  { name: 'IIT Indore', description: 'Application details: To be updated.', label: 'Details awaited', section: 'iit', logo: 'IITI' }, { name: 'IIT Mandi', description: 'Official internship information and opportunities.', href: 'https://academics.iitmandi.ac.in/internships', label: 'Official website', section: 'iit', logo: 'IIT MND' },
-  { name: 'IIT (ISM) Dhanbad', description: 'Summer Research Internship Program (SRIP).', href: 'https://people.iitism.ac.in/~research/SRIP.php', label: 'SRIP programme', section: 'iit', logo: 'IIT ISM' }, { name: 'IIT Palakkad', description: 'Summer Undergraduate Research programme.', href: 'https://sun.iitpkd.ac.in/', label: 'SUN programme', section: 'iit', logo: 'IIT PKD' },
+  { name: 'IIT Kharagpur', description: 'Official Kriti internship and research opportunities portal.', href: 'https://kriti.iitkgp.ac.in/', label: 'Kriti programme', section: 'iit', logo: 'IIT KGP' }, { name: 'IIT Bombay', description: 'Official IIT Bombay internship programme information.', href: 'https://www.ircc.iitb.ac.in/IRCC-Webpage/IITBInternship/', label: 'IITB internship', section: 'iit', logo: 'IITB' },
+  { name: 'IIT Madras', description: 'Summer Student Program (SSP).', href: 'https://ssp.iitm.ac.in/summer-fellowship-registration', label: 'Summer Student Program', section: 'iit', logo: 'IITM' }, { name: 'IIT Kanpur', description: 'Official SURGE undergraduate research programme.', href: 'https://surge.iitk.ac.in/#main-content', label: 'SURGE programme', section: 'iit', logo: 'IITK' },
+  { name: 'IIT Delhi', description: 'Official IIT Delhi summer internship announcement.', href: 'https://home.iitd.ac.in/show.php?id=837&in_sections=News', label: 'Official announcement', section: 'iit', logo: 'IITD' }, { name: 'IIT Guwahati', description: 'Summer Internship Programme (SIP) 2026 information.', href: 'https://iitg.ac.in/maths/index_page_details.php?page=5e8e29db97249e063eca106ccf5f323ce5865d8b&name=SIP-2026', label: 'SIP 2026', section: 'iit', logo: 'IITG' },
+  { name: 'IIT Roorkee', description: 'SPARK Summer Internship.', href: 'https://spark.iitr.ac.in/', label: 'SPARK programme', section: 'iit', logo: 'IITR' }, { name: 'IIT BHU Varanasi', description: 'Official JCSIC internship updates.', href: 'https://iitbhu.ac.in/cf/jcsic/updates', label: 'JCSIC updates', section: 'iit', logo: 'IIT BHU' },
+  { name: 'IIT Bhubaneswar', description: 'Official internship application portal.', href: 'https://webapps.iitbbs.ac.in/internship-application/index.php', label: 'Application portal', section: 'iit', logo: 'IIT BBS' }, { name: 'IIT Gandhinagar', description: 'SRIP 2026.', href: 'https://srip.iitgn.ac.in/info/srip-2026/', label: 'SRIP 2026', section: 'iit', logo: 'IITGN' },
+  { name: 'IIT Hyderabad', description: 'Summer Undergraduate Research Exposure programme.', href: 'https://www.iith.ac.in/news/2026/02/27/Summer-Undergraduate-Research-Exposure/', label: 'SURE programme', section: 'iit', logo: 'IITH' }, { name: 'IIT Jodhpur', description: 'SURAJ Summer Research Program.', href: 'https://www.iitj.ac.in/suraj/en/suraj', label: 'SURAJ programme', section: 'iit', logo: 'IITJ' },
+  { name: 'IIT Patna', description: 'Official IIT Patna internship notice.', href: 'https://www.iitp.ac.in/notices/27', label: 'Official notice', section: 'iit', logo: 'IITP' }, { name: 'IIT Ropar', description: 'Official internship admissions information.', href: 'https://www.iitrpr.ac.in/internship-admissions', label: 'Internship admissions', section: 'iit', logo: 'IIT RPR' },
+  { name: 'IIT Indore', description: 'Official IIT Indore internship information.', href: 'https://www.iiti.ac.in/academics/internship', label: 'Internship programme', section: 'iit', logo: 'IITI' }, { name: 'IIT Mandi', description: 'Official internship information and opportunities.', href: 'https://academics.iitmandi.ac.in/internships', label: 'Official website', section: 'iit', logo: 'IIT MND' },
+  { name: 'IIT (ISM) Dhanbad', description: 'Summer Research Internship Program (SRIP).', href: 'https://people.iitism.ac.in/~research/SRIP.php', label: 'SRIP programme', section: 'iit', logo: 'IIT ISM' }, { name: 'IIT Palakkad', description: 'Official summer internship opportunities.', href: 'https://iitpkd.ac.in/notifications/summer-internship-opportunities-iit-palakkad', label: 'Summer internship', section: 'iit', logo: 'IIT PKD' },
   { name: 'IIT Tirupati', description: 'Official Interns and Apprentice information.', href: 'https://www.iittp.ac.in/Interns_and_Apprentice', label: 'Official website', section: 'iit', logo: 'IITTP' }, { name: 'IIT Bhilai', description: 'Official internship procedure and guidance.', href: 'https://www.iitbhilai.ac.in/index.php?pid=internship_procedure', label: 'Official procedure', section: 'iit', logo: 'IITBH' },
   { name: 'IIT Goa', description: 'Summer Internships 2025 information.', href: 'https://iitgoa.ac.in/summer-internships-2025-iit-goa/', label: 'Official website', section: 'iit', logo: 'IIT GOA' }, { name: 'IIT Jammu', description: 'RISE-UP research and innovation programme.', href: 'https://iitjammu.ac.in/post/rise-up', label: 'RISE-UP', section: 'iit', logo: 'IITJM' },
-  { name: 'IIT Dharwad', description: 'Application information: First week of March.', label: 'First week of March', section: 'iit', logo: 'IITDH' },
+  { name: 'IIT Dharwad', description: 'Official academic internship information.', href: 'https://www.iitdh.ac.in/academic-internship', label: 'Academic internship', section: 'iit', logo: 'IITDH' },
 ]
 
 const startupResource: Resource = { name: 'Y Combinator', description: 'A distinctive launchpad for entrepreneurship: explore Startup School, founder learning, funding pathways and the global YC network.', href: 'https://www.ycombinator.com/', label: 'Founder ecosystem', section: 'startups', logo: 'yc' }
@@ -551,7 +551,62 @@ function App() {
   const selectedAcademicYear = selectedAcademicSubject ? academicYears.find(year => year.subjects.some(subject => subject.id === selectedAcademicSubject.id)) : undefined
 
   useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem('btech-theme', theme) }, [theme])
-  useEffect(() => { const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target) } }), { threshold: 0.08 }); document.querySelectorAll('[data-reveal]').forEach(node => revealObserver.observe(node)); const navObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) setActiveSection(entry.target.id as SectionId) }), { rootMargin: '-22% 0px -67% 0px' }); navItems.forEach(item => { const section = document.getElementById(item.id); if (section) navObserver.observe(section) }); return () => { revealObserver.disconnect(); navObserver.disconnect() } }, [companyFilter])
+  useEffect(() => {
+    const revealNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
+    let revealObserver: IntersectionObserver | undefined
+    let navObserver: IntersectionObserver | undefined
+
+    const showAllRevealNodes = () => revealNodes.forEach(node => {
+      node.classList.remove('reveal-pending')
+      node.classList.add('in-view')
+    })
+    const onViewportChange = () => {
+      if (window.innerWidth <= 1024) showAllRevealNodes()
+    }
+
+    // Content must never depend on animation support to be discoverable. Only
+    // elements already close to the viewport opt into the entrance animation;
+    // cards further down the page stay visible even during a very fast scroll.
+    if ('IntersectionObserver' in window) {
+      if (window.innerWidth > 1024 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const pendingRevealNodes = revealNodes.filter(node => {
+          const bounds = node.getBoundingClientRect()
+          return !node.classList.contains('in-view') && bounds.top < window.innerHeight * 1.15 && bounds.bottom > -80
+        })
+
+        pendingRevealNodes.forEach(node => node.classList.add('reveal-pending'))
+        revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('reveal-pending')
+            entry.target.classList.add('in-view')
+            revealObserver?.unobserve(entry.target)
+          }
+        }), { threshold: 0.08 })
+        pendingRevealNodes.forEach(node => revealObserver?.observe(node))
+      } else {
+        showAllRevealNodes()
+      }
+
+      navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id as SectionId)
+      }), { rootMargin: '-22% 0px -67% 0px' })
+      navItems.forEach(item => {
+        const section = document.getElementById(item.id)
+        if (section) navObserver?.observe(section)
+      })
+    } else {
+      showAllRevealNodes()
+    }
+
+    window.addEventListener('resize', onViewportChange, { passive: true })
+    onViewportChange()
+
+    return () => {
+      revealObserver?.disconnect()
+      navObserver?.disconnect()
+      window.removeEventListener('resize', onViewportChange)
+    }
+  }, [companyFilter])
   useEffect(() => { const onScroll = () => setShowBackToTop(window.scrollY > 650); window.addEventListener('scroll', onScroll, { passive: true }); onScroll(); return () => window.removeEventListener('scroll', onScroll) }, [])
   useEffect(() => {
     const overlayOpen = menuOpen || searchOpen || Boolean(selectedReference)

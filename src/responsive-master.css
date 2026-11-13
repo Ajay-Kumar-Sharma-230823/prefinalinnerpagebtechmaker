@@ -4030,3 +4030,111 @@ img {
     font-size: 20px;
   }
 }
+
+/* ── DB. SAFE, OPT-IN ENTRANCE REVEALS ──────────────────────── */
+/* Base visibility is deliberate: a skipped observer callback must never make
+   cards inaccessible. JavaScript adds .reveal-pending only near the viewport. */
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal].reveal-pending {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .58s ease, transform .58s ease;
+}
+
+[data-reveal].reveal-pending.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* A CSS filter flattens the 3D context in several mobile browsers, exposing
+   the mirrored front face instead of the selectable subject list. */
+.year-flip-card.is-flipped .year-flip-card-inner {
+  filter: none;
+}
+
+/* ── DC. CARD VISIBILITY GUARANTEE ──────────────────────────── */
+/*
+  Scroll-reveal is decorative, never a content gate. On touch layouts cards
+  stay in the normal document flow so they remain available while the browser
+  is loading, when scrolling quickly, and in web views without observers.
+*/
+@media (max-width: 1024px) {
+  [data-reveal],
+  [data-reveal].reveal-pending,
+  [data-reveal].in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* The SIH panel is part of the feature card, so adapt it below the main
+     content instead of removing it at tablet and phone breakpoints. */
+  .sih-side {
+    display: flex;
+    min-width: 0;
+    padding: 22px 26px 26px;
+    border-top: 1px solid #373737;
+    border-left: 0;
+  }
+
+  /* Keep each career card's category visible when the grid condenses. */
+  .company-brand > span {
+    display: block;
+  }
+
+  /* Use an in-flow expansion instead of a 3D flip on touch devices. It keeps
+     the same card faces, but avoids browser-specific backface rendering bugs
+     and prevents the subject list from being painted behind the front card. */
+  .year-flip-card {
+    height: auto;
+    min-height: 300px;
+    perspective: none;
+  }
+
+  .year-flip-card-inner,
+  .year-flip-card.is-flipped .year-flip-card-inner {
+    height: auto;
+    transform: none;
+  }
+
+  .year-flip-card-face {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 300px;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+  }
+
+  .year-flip-card-back {
+    display: none;
+    margin-top: 12px;
+    transform: none;
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-front {
+    pointer-events: auto;
+    border-color: var(--accent);
+  }
+
+  .year-flip-card.is-flipped .year-flip-card-back {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .sih-side {
+    padding: 18px 22px 22px;
+  }
+
+  .sih-side > span {
+    font-size: 9px;
+  }
+
+  .sih-side b {
+    font-size: 30px;
+  }
+}
