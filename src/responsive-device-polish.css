@@ -15,15 +15,15 @@
 /* Editorial RGPV exam-writing sample placed directly below the academic-year cards. */
 .exam-writing-sample {
   display: grid;
-  grid-template-columns: minmax(0, 45fr) minmax(280px, 55fr);
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
   align-items: center;
-  gap: clamp(30px, 5.5vw, 78px);
-  width: min(100%, 1050px);
+  gap: clamp(22px, 3.5vw, 42px);
+  width: min(100%, 920px);
   margin: clamp(42px, 6vw, 76px) auto 0;
   padding: 0;
 }
 
-.exam-writing-sample-copy { max-width: 430px; }
+.exam-writing-sample-copy { max-width: 490px; }
 .exam-writing-sample-copy > span {
   display: block;
   margin-bottom: 13px;
@@ -39,12 +39,12 @@
   margin: 0;
   color: var(--ink);
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(35px, 4.2vw, 56px);
+  font-size: clamp(34px, 3.8vw, 50px);
   font-weight: 600;
   letter-spacing: -.06em;
   line-height: .95;
 }
-.exam-writing-sample p { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.exam-writing-sample p { max-width: 440px; margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .exam-writing-sample-cta {
   display: inline-flex;
   align-items: center;
@@ -70,25 +70,26 @@
   position: relative;
   display: block;
   justify-self: end;
-  width: min(100%, 440px);
-  padding: 5px;
+  width: min(100%, 300px);
+  max-height: 440px;
+  padding: 4px;
   overflow: hidden;
   border: 1px solid var(--line-bright);
   border-radius: 10px;
   background: var(--surface);
-  box-shadow: 0 22px 46px rgba(0, 0, 0, .28);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .2);
   cursor: zoom-in;
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
-.exam-writing-sample-preview img { display: block; width: 100%; height: auto; border-radius: 5px; }
+.exam-writing-sample-preview img { display: block; width: 100%; max-height: 430px; height: auto; margin: 0 auto; border-radius: 5px; object-fit: contain; }
 .exam-writing-sample-preview > span {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
+  right: 12px;
+  bottom: 12px;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 0 10px;
+  min-height: 28px;
+  padding: 0 8px;
   color: var(--accent-ink);
   background: var(--accent);
   border-radius: 4px;
@@ -103,12 +104,12 @@
 .exam-writing-sample-preview:hover > span,
 .exam-writing-sample-preview:focus-visible > span { transform: translateY(-2px); }
 .exam-writing-sample-preview:hover,
-.exam-writing-sample-preview:focus-visible { border-color: var(--accent); box-shadow: 0 27px 54px rgba(0, 0, 0, .34); outline: 0; transform: translateY(-3px); }
+.exam-writing-sample-preview:focus-visible { border-color: var(--accent); box-shadow: 0 16px 34px rgba(0, 0, 0, .26); outline: 0; transform: translateY(-2px); }
 
 @media (max-width: 700px) {
   .exam-writing-sample { grid-template-columns: 1fr; gap: 27px; width: min(100%, 440px); }
   .exam-writing-sample-copy { max-width: 100%; }
-  .exam-writing-sample-preview { justify-self: center; width: min(100%, 390px); }
+  .exam-writing-sample-preview { justify-self: center; width: min(100%, 300px); }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -264,8 +265,8 @@
   .exam-writing-sample h4 { font-size: clamp(34px, 10vw, 44px); }
   .exam-writing-sample p { margin-top: 13px; font-size: 12px; }
   .exam-writing-sample-cta { margin-top: 20px; }
-  .exam-writing-sample-preview { width: min(100%, 340px); padding: 4px; }
-  .exam-writing-sample-preview > span { right: 13px; bottom: 13px; min-height: 30px; padding: 0 9px; font-size: 7px; }
+  .exam-writing-sample-preview { width: min(100%, 300px); padding: 4px; }
+  .exam-writing-sample-preview > span { right: 11px; bottom: 11px; min-height: 28px; padding: 0 8px; font-size: 7px; }
 }
 
 @media (max-width: 390px) {
