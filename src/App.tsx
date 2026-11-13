@@ -338,6 +338,8 @@ const localLogoSources: Record<string, string> = {
   'IIT Ropar': new URL('../Logos/IIT Ropar.png', import.meta.url).href,
   'IIT Tirupati': new URL('../Logos/IIT Tirupati.png', import.meta.url).href,
   'India Science, Technology and Innovation Portal': new URL('../Logos/India Science, Technology and Innovation Portal.png', import.meta.url).href,
+  'Government of India': new URL('../Logos/Prime Minister Internship Scheme.png', import.meta.url).href,
+  'Indian Army': new URL('../Logos/Indian Amry.png', import.meta.url).href,
   'Indian Army Internship': new URL('../Logos/Indian Amry.png', import.meta.url).href,
   ISRO: new URL('../Logos/ISRO.png', import.meta.url).href,
   'ISRO Course Calendar': new URL('../Logos/ISRO.png', import.meta.url).href,
@@ -371,16 +373,34 @@ const localLogoSources: Record<string, string> = {
   Workday: new URL('../Logos/Workday.png', import.meta.url).href,
   Yukti: new URL('../Logos/Yukti.png', import.meta.url).href,
 }
-const institutionalDocumentLogos = [
-  { name: 'ISRO', logo: 'ISRO', label: 'Space research' },
-  { name: 'DRDO', logo: 'DRDO', label: 'Defence research' },
-  { name: 'Ministry of Electronics and Information Technology', logo: 'MeitY', label: 'Government ministry' },
-  { name: 'Prime Minister Internship Scheme', logo: 'PM', label: 'Government of India' },
-  { name: 'IIT Delhi', logo: 'IITD', label: 'IIT institution' },
-  { name: 'Microsoft', logo: 'Microsoft', label: 'Global technology' },
-  { name: 'TCS', logo: 'tcs', label: 'Indian technology' },
-  { name: 'Infosys', logo: 'infosys', label: 'Global technology' },
-] as const
+type InstitutionalLogo = Pick<Resource, 'name' | 'logo' | 'logoUrl' | 'domain'> & { label: string }
+
+const institutionalDocumentLogos = {
+  top: [
+    { name: 'Amazon', logo: 'Amazon', label: 'Amazon' },
+    { name: 'Meta', logo: 'meta', label: 'Meta' },
+    { name: 'Microsoft', logo: 'Microsoft', label: 'Microsoft' },
+    { name: 'Google', logo: 'google', label: 'Google' },
+  ],
+  left: [
+    { name: 'ISRO', logo: 'ISRO', label: 'ISRO' },
+    { name: 'DRDO', logo: 'DRDO', label: 'DRDO' },
+    { name: 'Government of India', logo: 'GOI', label: 'Government of India' },
+    { name: 'Indian Army', logo: 'Army', label: 'Indian Army' },
+  ],
+  right: [
+    { name: 'IIT Indore', logo: 'IITI', domain: 'iiti.ac.in', label: 'IIT Indore' },
+    { name: 'IIT Delhi', logo: 'IITD', label: 'IIT Delhi' },
+    { name: 'IIT Bombay', logo: 'IITB', label: 'IIT Bombay' },
+    { name: 'IIT Kanpur', logo: 'IITK', label: 'IIT Kanpur' },
+  ],
+  bottom: [
+    { name: 'TCS', logo: 'tcs', label: 'TCS' },
+    { name: 'Infosys', logo: 'infosys', label: 'Infosys' },
+    { name: 'Capgemini', logo: 'Capgemini', label: 'Capgemini' },
+    { name: 'Deloitte', logo: 'Deloitte', logoUrl: 'https://cdn.simpleicons.org/deloitte/86BC25', label: 'Deloitte' },
+  ],
+} as const satisfies Record<'top' | 'left' | 'right' | 'bottom', readonly InstitutionalLogo[]>
 const heroSlides = [
   { id: 'academics', title: 'Discover Opportunities.', copy: 'Find research internships, IIT summer programs, ISRO learning resources and government opportunities.', tag: 'Research discovery', markers: ['IIT SUMMER', 'ISRO LEARNING', 'INTERNSHIPS'] },
   { id: 'innovation', title: 'Turn Ideas Into Impact.', copy: 'Explore national hackathons, international competitions and innovation challenges.', tag: 'Innovation & building', markers: ['SMART INDIA HACKATHON', 'NATIONAL BUILDS', 'GLOBAL COMPETITIONS'] },
@@ -472,6 +492,12 @@ function ReferenceGallery({ title, eyebrow = 'Supporting documents', images, onO
     </div>
   </section>
 }
+function InstitutionalLogoRail({ position, logos }: { position: 'top' | 'left' | 'right' | 'bottom'; logos: readonly InstitutionalLogo[] }) {
+  return <div className={`institutional-logo-rail institutional-logo-rail-${position}`} aria-label={`${position} institutional logos`}>
+    {logos.map(logo => <div className="institutional-logo" key={logo.name}><LogoMark resource={logo} large /><span>{logo.label}</span></div>)}
+  </div>
+}
+
 function InstitutionalDocumentShowcase({ images, onOpen }: { images: ReferenceImage[]; onOpen: (image: ReferenceImage) => void }) {
   return <section className="institutional-document-showcase" aria-labelledby="institutional-documents-title" data-reveal>
     <header className="institutional-document-heading">
@@ -479,10 +505,9 @@ function InstitutionalDocumentShowcase({ images, onOpen }: { images: ReferenceIm
       <h3 id="institutional-documents-title">Letters of Recommendation &amp; Application Resources</h3>
       <p>Original reference documents presented within the institutions and companies that shape an engineering career.</p>
     </header>
+    <InstitutionalLogoRail position="top" logos={institutionalDocumentLogos.top} />
     <div className="institutional-document-stage">
-      <div className="institutional-logo-wall institutional-logo-wall-start" aria-label="Government and research institutions">
-        {institutionalDocumentLogos.slice(0, 4).map(logo => <div className="institutional-logo" key={logo.name}><LogoMark resource={logo} large /><span>{logo.label}</span></div>)}
-      </div>
+      <InstitutionalLogoRail position="left" logos={institutionalDocumentLogos.left} />
       <div className="institutional-document-grid">
         {images.map(image => <article className="institutional-document-card" key={image.name}>
           <button className="institutional-document-preview" type="button" onClick={() => onOpen(image)} aria-label={`View ${image.name} document`}>
@@ -492,10 +517,9 @@ function InstitutionalDocumentShowcase({ images, onOpen }: { images: ReferenceIm
           <div className="institutional-document-copy"><h4>{image.title}</h4><a href={image.src} target="_blank" rel="noopener noreferrer">Open original <ArrowUpRight size={13} /></a></div>
         </article>)}
       </div>
-      <div className="institutional-logo-wall institutional-logo-wall-end" aria-label="Academic and corporate institutions">
-        {institutionalDocumentLogos.slice(4).map(logo => <div className="institutional-logo" key={logo.name}><LogoMark resource={logo} large /><span>{logo.label}</span></div>)}
-      </div>
+      <InstitutionalLogoRail position="right" logos={institutionalDocumentLogos.right} />
     </div>
+    <InstitutionalLogoRail position="bottom" logos={institutionalDocumentLogos.bottom} />
   </section>
 }
 function PresentationCard({ presentation }: { presentation: Presentation }) {

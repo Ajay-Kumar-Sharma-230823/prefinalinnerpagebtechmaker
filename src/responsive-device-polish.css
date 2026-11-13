@@ -1,0 +1,141 @@
+/* Final device pass: resolves only the dense layouts introduced after the base responsive system. */
+.hero-copy,
+.showcase-caption,
+.section-heading > div,
+.institutional-document-card,
+.certification-platform-card,
+.company-card,
+.iit-card,
+.year-subject-row > b { min-width: 0; }
+
+.year-subject-row > b,
+.institutional-document-copy h4,
+.company-copy h3 { overflow-wrap: anywhere; }
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .topbar-inner,
+  .hero-grid,
+  .container,
+  .hero-stats,
+  .hero-rail { width: min(100% - 44px, 1370px); }
+
+  .institutional-document-stage {
+    grid-template-columns: minmax(100px, .42fr) minmax(0, 2fr) minmax(100px, .42fr);
+    gap: 18px;
+  }
+
+  .institutional-logo { min-height: 96px; }
+}
+
+@media (max-width: 1024px) {
+  .hero-dashboard-showcase .hero-copy { max-width: 720px; }
+
+  .hero-dashboard-showcase .hero-copy h1 { font-size: clamp(46px, 7vw, 68px); }
+
+  .hackathon-platform-heading { max-width: 720px; }
+
+  .hackathon-platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+
+  .year-flip-grid-wrap { width: min(100%, 940px); }
+
+  .year-flip-card-back { scrollbar-width: thin; }
+
+  .institutional-document-showcase { max-width: none; }
+}
+
+@media (max-width: 900px) {
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .iit-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  .institutional-document-stage { gap: 14px; }
+
+  .institutional-document-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .institutional-logo-rail-top,
+  .institutional-logo-rail-bottom { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .topbar-actions { gap: 6px; }
+
+  .hero-dashboard-showcase .hero-grid { gap: 28px; }
+
+  .hero-dashboard-showcase .hero-copy h1 { font-size: clamp(42px, 9vw, 58px); }
+
+  .section-heading { display: block; }
+
+  .section-aside { margin-top: 12px; }
+
+  .hackathon-platform-heading > span { font-size: clamp(32px, 8vw, 46px); }
+
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .iit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .institutional-logo-rail-top,
+  .institutional-logo-rail-bottom,
+  .institutional-logo-rail-left,
+  .institutional-logo-rail-right { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .hero-dashboard-showcase .hero-copy h1 { font-size: clamp(40px, 12vw, 51px); }
+
+  .hero-dashboard-showcase .hero-description { font-size: 14px; }
+
+  .hero-buttons > span {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .hackathon-platform-heading > p { font-size: 12px; }
+
+  .hackathon-platform-grid,
+  .three-grid,
+  .two-grid,
+  .internship-grid { grid-template-columns: 1fr !important; }
+
+  .certification-platform-grid { max-width: 100%; }
+
+  .year-flip-grid { grid-template-columns: minmax(0, 430px); }
+
+  .year-flip-card { width: 100%; }
+
+  .iit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .institutional-document-heading h3 { font-size: clamp(25px, 8.8vw, 35px); }
+
+  .institutional-logo-rail-top,
+  .institutional-logo-rail-bottom,
+  .institutional-logo-rail-left,
+  .institutional-logo-rail-right { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .institutional-logo { min-height: 72px; }
+
+  .institutional-document-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 390px) {
+  .topbar-actions { gap: 3px; }
+
+  /* Preserve complete hero words on the narrowest phones. */
+  .hero-dashboard-showcase .hero-copy h1 {
+    font-size: clamp(36px, 11.9vw, 38px);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .company-grid,
+  .iit-grid { grid-template-columns: 1fr; }
+
+  .year-flip-card { height: 318px; }
+
+  .year-flip-card-back { padding: 13px; }
+
+  .year-subject-row { grid-template-columns: 19px minmax(0, 1fr) 13px; }
+
+  .year-subject-row i { display: none; }
+}

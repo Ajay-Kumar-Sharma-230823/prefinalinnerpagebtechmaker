@@ -22,5 +22,7 @@ import './theme-consistency.css'
 import './requested-layout-refinements.css'
 import './institutional-document-showcase.css'
 import './unified-video-showcase.css'
+import './section-layout-repairs.css'
+import './responsive-device-polish.css'
 
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>)

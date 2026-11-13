@@ -1,6 +1,6 @@
-/* Unified LOR and resume showcase using the supplied document images and logo assets. */
+/* The supplied LOR and resume previews sit inside a four-sided institutional logo frame. */
 .institutional-document-showcase {
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: clamp(22px, 3.4vw, 42px);
   border: 1px solid var(--line-bright);
@@ -11,7 +11,7 @@
 
 .institutional-document-heading {
   max-width: 760px;
-  margin: 0 auto 30px;
+  margin: 0 auto 28px;
   text-align: center;
 }
 
@@ -41,29 +41,50 @@
   line-height: 1.6;
 }
 
+.institutional-logo-rail {
+  display: grid;
+  gap: clamp(8px, 1.25vw, 14px);
+}
+
+.institutional-logo-rail-top,
+.institutional-logo-rail-bottom {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 740px);
+  margin-inline: auto;
+}
+
+.institutional-logo-rail-top { margin-bottom: clamp(16px, 2.2vw, 28px); }
+.institutional-logo-rail-bottom { margin-top: clamp(16px, 2.2vw, 28px); }
+
 .institutional-document-stage {
   display: grid;
-  grid-template-columns: minmax(104px, .48fr) minmax(0, 1.85fr) minmax(104px, .48fr);
+  grid-template-columns: minmax(112px, .48fr) minmax(0, 2fr) minmax(112px, .48fr);
   align-items: stretch;
   gap: clamp(14px, 2.2vw, 28px);
 }
 
-.institutional-logo-wall {
-  display: grid;
+.institutional-logo-rail-left,
+.institutional-logo-rail-right {
   grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
 }
 
 .institutional-logo {
   display: grid;
   place-items: center;
   align-content: center;
-  min-height: 112px;
+  min-height: 104px;
   padding: 12px 8px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: color-mix(in srgb, var(--surface) 82%, var(--surface-2));
   text-align: center;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.institutional-logo:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  transform: translateY(-2px);
 }
 
 .institutional-logo .logo-mark {
@@ -76,6 +97,11 @@
 .institutional-logo .logo-mark img {
   width: 84%;
   height: 84%;
+}
+
+.institutional-logo .logo-mark.vector svg {
+  width: 29px;
+  height: 29px;
 }
 
 .institutional-document-grid {
@@ -187,23 +213,25 @@
 
 @media (max-width: 900px) {
   .institutional-document-stage { grid-template-columns: 1fr; }
-  .institutional-logo-wall {
+  .institutional-logo-rail-left,
+  .institutional-logo-rail-right {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: none;
   }
-  .institutional-logo-wall-start { order: 1; }
+  .institutional-logo-rail-left { order: 1; }
   .institutional-document-grid { order: 2; }
-  .institutional-logo-wall-end { order: 3; }
-  .institutional-logo { min-height: 96px; }
+  .institutional-logo-rail-right { order: 3; }
+  .institutional-logo { min-height: 92px; }
 }
 
 @media (max-width: 600px) {
   .institutional-document-showcase { padding: 19px 14px; border-radius: 12px; }
   .institutional-document-heading { margin-bottom: 22px; }
   .institutional-document-heading p { font-size: 12px; }
-  .institutional-logo-wall { gap: 7px; }
-  .institutional-logo { min-height: 81px; padding: 8px 4px; border-radius: 7px; }
+  .institutional-logo-rail { gap: 7px; }
+  .institutional-logo { min-height: 80px; padding: 8px 4px; border-radius: 7px; }
   .institutional-logo .logo-mark { width: 42px; height: 42px; margin-bottom: 5px; }
+  .institutional-logo .logo-mark.vector svg { width: 23px; height: 23px; }
   .institutional-logo > span { font-size: 6px; letter-spacing: .035em; }
   .institutional-document-grid { grid-template-columns: 1fr; gap: 10px; }
   .institutional-document-copy { display: block; min-height: 64px; padding: 9px; }
@@ -213,13 +241,16 @@
 }
 
 @media (max-width: 390px) {
-  .institutional-logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .institutional-logo-rail-top,
+  .institutional-logo-rail-bottom,
+  .institutional-logo-rail-left,
+  .institutional-logo-rail-right { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .institutional-logo { min-height: 68px; }
-  .institutional-document-grid { grid-template-columns: 1fr; }
   .institutional-document-preview { aspect-ratio: .95; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .institutional-logo,
   .institutional-document-card,
   .institutional-document-preview img { transition: none; }
 }
