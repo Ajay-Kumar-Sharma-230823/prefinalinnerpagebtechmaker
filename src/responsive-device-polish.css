@@ -14,7 +14,7 @@
 
 /* An annotated handwritten answer makes the four academic-year cards more actionable. */
 .exam-writing-sample {
-  width: min(100%, 940px);
+  width: min(100%, 440px);
   margin: clamp(34px, 5vw, 58px) auto 0;
   padding: clamp(16px, 2.7vw, 28px);
   border: 1px solid var(--line-bright);
